@@ -105,7 +105,7 @@ colcon build
 source install/setup.bash
 
 # Launch simulation
-ros2 launch amr_sim clean_world.launch.py
+ros2 launch amr_description clean_world.launch.py
 
 # Control robot
 ros2 run teleop_twist_keyboard teleop_twist_keyboard

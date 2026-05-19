@@ -156,37 +156,38 @@
     </link>
 
 <!--Joints-->
-    <joint name="base_link_f_wheel_r_revolute" type="continuous">
+    <joint name="f_wheel_r_revolute" type="continuous">
         <origin xyz="0.4 -0.425 -0.065" rpy="1.5707963267948966 -0.0 0.0" />
         <parent link="base_link" />
         <child link="f_wheel_r" />
         <axis xyz="0.0 0.0 1.0" />
     </joint>
-    <joint name="base_link_f_wheel_l_revolute" type="continuous">
+    <joint name="f_wheel_l_revolute" type="continuous">
         <origin xyz="0.4 0.425 -0.065" rpy="-1.5707963267948966 -0.0 0.0" />
         <parent link="base_link" />
         <child link="f_wheel_l" />
         <axis xyz="0.0 0.0 1.0" />
     </joint>
-    <joint name="base_link_b_wheel_l_revolute" type="continuous">
+    <joint name="b_wheel_l_revolute" type="continuous">
         <origin xyz="-0.4 0.425 -0.065" rpy="-1.5707963267948966 -0.0 0.0" />
         <parent link="base_link" />
         <child link="b_wheel_l" />
         <axis xyz="0.0 0.0 1.0" />
     </joint>
-    <joint name="base_link_b_wheel_r_revolute" type="continuous">
+    <joint name="b_wheel_r_revolute" type="continuous">
         <origin xyz="-0.4 -0.425 -0.065" rpy="1.5707963267948966 -0.0 0.0" />
         <parent link="base_link" />
         <child link="b_wheel_r" />
         <axis xyz="0.0 0.0 1.0" />
     </joint>
-    <joint name="base_link_camera_rotation" type="continuous">
+    <joint name="camera_rotation" type="continuous">
         <origin xyz="0.19166667 0.0 0.23500000000000001" rpy="0.0 -0.0 0.0" />
         <parent link="base_link" />
         <child link="camera_link" />
         <axis xyz="0.0 0.0 1.0" />
+        <limit lower="-1.5707963267948966" upper="1.5707963267948966" effort="100" velocity="1.0"/>
     </joint>
-    <joint name="base_link_lidar_rotation" type="continuous">
+    <joint name="lidar_rotation" type="continuous">
         <origin xyz="0.0 0.0 -0.185" rpy="3.141592653589793 -0.0 0.0" />
         <parent link="base_link" />
         <child link="lidar_link" />
@@ -197,6 +198,8 @@
         <gazebo reference="camera_link">
 
             <sensor name="camera_sensor" type="camera">
+
+                <topic>camera/image_raw</topic>
 
                 <update_rate>30.0</update_rate>
 
@@ -234,7 +237,9 @@
         <gazebo reference="lidar_link">
 
             <sensor name="lidar_sensor" type="ray">
-
+                
+                <topic>scan</topic>
+                
                 <update_rate>10.0</update_rate>
 
                 <ray>

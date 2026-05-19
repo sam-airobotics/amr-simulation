@@ -35,11 +35,10 @@ def generate_launch_description():
         }]
     )
 
-    # Joint State Publisher GUI
-    joint_state_publisher_gui = Node(
-        package="joint_state_publisher_gui",
-        executable="joint_state_publisher_gui",
-        output="screen"
+    joint_state_publisher = Node(
+        package='joint_state_publisher',
+        executable='joint_state_publisher',
+        output='screen'
     )
 
     # RViz Config Path
@@ -60,6 +59,6 @@ def generate_launch_description():
 
     return LaunchDescription([
         robot_state_publisher,
-        joint_state_publisher_gui,
+        joint_state_publisher,
         rviz2
     ])

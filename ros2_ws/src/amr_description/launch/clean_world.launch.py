@@ -42,7 +42,7 @@ def generate_launch_description():
         pkg_path,
         'worlds',
         'clean_world',
-        'clean_world.sdf'
+        'model.sdf'
     )
 
     # =========================

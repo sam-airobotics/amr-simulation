@@ -1,0 +1,39 @@
+<?xml version="1.0" ?>
+<sdf version="1.6">
+ <world name="default">
+    
+    <!-- LIGHT -->
+    <light name="sun" type="directional">
+      <pose>0 0 10 0 0 0</pose>
+      <diffuse>1 1 1 1</diffuse>
+      <direction>-0.5 0.1 -1</direction>
+    </light>
+  
+  <model name="clean_world">
+    <static>true</static>
+
+    <link name="clean_world">
+
+      <!-- Visual -->
+      <visual name="visual">
+        <geometry>
+          <mesh>
+            <uri>model://clean_world/meshes/clean_world.obj</uri>
+          </mesh>
+        </geometry>
+      </visual>
+
+      <!-- Collision -->
+      <collision name="collision">
+        <geometry>
+          <mesh>
+            <uri>model://clean_world/meshes/clean_world.obj</uri>
+          </mesh>
+        </geometry>
+      </collision>
+
+    </link>
+  </model>
+  
+ </world>
+</sdf>

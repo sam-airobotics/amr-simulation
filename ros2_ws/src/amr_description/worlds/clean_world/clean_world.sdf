@@ -18,7 +18,7 @@
       <visual name="visual">
         <geometry>
           <mesh>
-            <uri>model://clean_world/meshes/clean_world.obj</uri>
+            <uri>file:///home/sam/amr-simulation/ros2_ws/src/amr_description/worlds/clean_world/meshes/clean_world.obj</uri>
           </mesh>
         </geometry>
       </visual>
@@ -27,7 +27,7 @@
       <collision name="collision">
         <geometry>
           <mesh>
-            <uri>model://clean_world/meshes/clean_world.obj</uri>
+            <uri>file:///home/sam/amr-simulation/ros2_ws/src/amr_description/worlds/clean_world/meshes/clean_world.obj</uri>
           </mesh>
         </geometry>
       </collision>

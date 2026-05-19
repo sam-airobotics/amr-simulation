@@ -41,6 +41,7 @@ def generate_launch_description():
     world_file = os.path.join(
         pkg_path,
         'worlds',
+        'clean_world',
         'clean_world.sdf'
     )
 

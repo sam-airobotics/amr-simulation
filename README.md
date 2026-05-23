@@ -35,7 +35,7 @@ A minimal environment for testing robot motion and control.
 - Velocity control validation
 - Simulation environment setup
 
-![Clean World](images/clean_world.png)
+![Clean World](images/clean_world_gz_sim.png)
 
 ---
 
@@ -53,7 +53,7 @@ A world containing obstacles for testing robot interaction and movement behavior
 - Motion behavior analysis
 - Navigation testing
 
-![Obstacle World](images/obstacle_world.png)
+![Obstacle World](images/obstacle_world_gz_sim.png)
 
 ---
 
@@ -72,7 +72,7 @@ A structured environment for testing robot sensors and visualization.
 - Data visualization
 - Perception system testing
 
-![Sensor World](images/sensor_world.png)
+![Sensor World](images/sensor_world_gz_sim.png)
 
 ---
 

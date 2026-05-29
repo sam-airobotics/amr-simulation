@@ -126,9 +126,9 @@ def generate_launch_description():
             '-name',
             'amr',
 
-            '-x', '5.3',
-            '-y', '1.6',
-            '-z', '0.2',
+            '-x', '0.0',
+            '-y', '0.0',
+            '-z', '0.0',
 
             '-R', '0.0',
             '-P', '0.0',
@@ -163,6 +163,22 @@ def generate_launch_description():
         output='screen'
     )
     
+    camera_bridge = Node(
+        package='ros_gz_bridge',
+        executable='parameter_bridge',
+        arguments=[
+            '/camera/image_raw@sensor_msgs/msg/Image[gz.msgs.Image'
+        ]
+    )
+
+    lidar_bridge = Node(
+        package='ros_gz_bridge',
+        executable='parameter_bridge',
+        arguments=[
+            '/scan@sensor_msgs/msg/LaserScan[gz.msgs.LaserScan'
+        ]
+    )
+    
     # =========================
     # LAUNCH DESCRIPTION
     # =========================
@@ -177,8 +193,14 @@ def generate_launch_description():
 
         joint_state_publisher,
 
+        joint_state_broadcaster_spawner,
+
         spawn_robot,
         
         clock_bridge,
+
+        camera_bridge,
+
+        lidar_bridge,
 
     ])

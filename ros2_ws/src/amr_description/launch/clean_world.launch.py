@@ -153,6 +153,16 @@ def generate_launch_description():
         output='screen'
     )
 
+
+    clock_bridge = Node(
+        package='ros_gz_bridge',
+        executable='parameter_bridge',
+        arguments=[
+            '/clock@rosgraph_msgs/msg/Clock[gz.msgs.Clock'
+        ],
+        output='screen'
+    )
+    
     # =========================
     # LAUNCH DESCRIPTION
     # =========================
@@ -168,5 +178,7 @@ def generate_launch_description():
         joint_state_publisher,
 
         spawn_robot,
+        
+        clock_bridge,
 
     ])

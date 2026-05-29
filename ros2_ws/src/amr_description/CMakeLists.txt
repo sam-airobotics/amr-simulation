@@ -26,6 +26,6 @@ endif()
 ament_package()
 
 install(
-  DIRECTORY launch urdf meshes rviz
+  DIRECTORY launch urdf meshes rviz worlds
   DESTINATION share/${PROJECT_NAME}
 )

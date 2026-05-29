@@ -7,7 +7,7 @@
 				{
 					"build" : ".",
 					"hasInstallRule" : true,
-					"jsonFile" : "directory-.-c6667addcebe75a91bcc.json",
+					"jsonFile" : "directory-.-76ee42a2e2e1b31e3f9b.json",
 					"minimumCMakeVersion" : 
 					{
 						"string" : "3.20"
@@ -29,7 +29,7 @@
 					[
 						0
 					],
-					"name" : "amr_control",
+					"name" : "amr_description",
 					"targetIndexes" : 
 					[
 						0,
@@ -41,15 +41,15 @@
 			[
 				{
 					"directoryIndex" : 0,
-					"id" : "amr_control_uninstall::@6890427a1f51a3e7e1df",
-					"jsonFile" : "target-amr_control_uninstall-b4e459f919dd66d8b935.json",
-					"name" : "amr_control_uninstall",
+					"id" : "amr_description_uninstall::@6890427a1f51a3e7e1df",
+					"jsonFile" : "target-amr_description_uninstall-fa8554f4d309a50cfcca.json",
+					"name" : "amr_description_uninstall",
 					"projectIndex" : 0
 				},
 				{
 					"directoryIndex" : 0,
 					"id" : "uninstall::@6890427a1f51a3e7e1df",
-					"jsonFile" : "target-uninstall-75fb64c69b5b14aa0628.json",
+					"jsonFile" : "target-uninstall-421bd6432769dd2f7209.json",
 					"name" : "uninstall",
 					"projectIndex" : 0
 				}
@@ -59,8 +59,8 @@
 	"kind" : "codemodel",
 	"paths" : 
 	{
-		"build" : "/home/sam/amr-simulation/ros2_ws/build/amr_control",
-		"source" : "/home/sam/amr-simulation/ros2_ws/src/amr_control"
+		"build" : "/home/sam/amr-simulation/ros2_ws/build/amr_description",
+		"source" : "/home/sam/amr-simulation/ros2_ws/src/amr_description"
 	},
 	"version" : 
 	{

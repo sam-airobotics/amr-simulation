@@ -6,8 +6,6 @@
 
     <gazebo reference="base_link">
 
-        <material>Gazebo/Orange</material>
-
         <mu1>1.0</mu1>
         <mu2>1.0</mu2>
 
@@ -16,11 +14,9 @@
 
     </gazebo>
 
-    <!-- ================= RIGHT WHEEL 1 ================= -->
+    <!-- ================= front wheels ================= -->
 
-    <gazebo reference="r_wheel_link_1">
-
-        <material>Gazebo/Black</material>
+    <gazebo reference="f_wheel_r">
 
         <mu1>2.0</mu1>
         <mu2>2.0</mu2>
@@ -32,11 +28,7 @@
 
     </gazebo>
 
-    <!-- ================= RIGHT WHEEL 2 ================= -->
-
-    <gazebo reference="r_wheel_link_2">
-
-        <material>Gazebo/Black</material>
+    <gazebo reference="f_wheel_l">
 
         <mu1>2.0</mu1>
         <mu2>2.0</mu2>
@@ -48,11 +40,9 @@
 
     </gazebo>
 
-    <!-- ================= LEFT WHEEL 1 ================= -->
+    <!-- ================= back wheels ================= -->
 
-    <gazebo reference="l_wheel_link_1">
-
-        <material>Gazebo/Black</material>
+    <gazebo reference="b_wheel_r">
 
         <mu1>2.0</mu1>
         <mu2>2.0</mu2>
@@ -64,11 +54,7 @@
 
     </gazebo>
 
-    <!-- ================= LEFT WHEEL 2 ================= -->
-
-    <gazebo reference="l_wheel_link_2">
-
-        <material>Gazebo/Black</material>
+    <gazebo reference="b_wheel_l">
 
         <mu1>2.0</mu1>
         <mu2>2.0</mu2>
@@ -97,12 +83,6 @@
                         <far>100.0</far>
                     </clip>
                 </camera>
-                <plugin name="camera_controller" filename="libgazebo_ros_camera.so">
-                    <ros>
-                        <namespace>/camera</namespace>
-                    </ros>
-                    <frame_name>camera_link</frame_name>
-                </plugin>
             </sensor>
         </gazebo>
 
@@ -127,13 +107,6 @@
                         <resolution>0.01</resolution>
                     </range>
                 </ray>
-                <plugin name="laser_controller" filename="libgazebo_ros_ray_sensor.so">
-                    <ros>
-                        <remapping>~/out:=scan</remapping>
-                    </ros>
-                    <output_type>sensor_msgs/LaserScan</output_type>
-                    <frame_name>lidar_link</frame_name>
-                </plugin>
             </sensor>
         </gazebo>
 

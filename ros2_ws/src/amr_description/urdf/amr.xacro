@@ -7,19 +7,17 @@
   <!-- Include gazebo -->
   <xacro:include filename="$(find amr_description)/urdf/gazebo.xacro"/>
 
-<!--Base Link-->
     <link name="base_link">
         <inertial>
-            <origin xyz="-0.004351267108603693 -2.5010522091502847e-16 0.008281830778488642" rpy="0.0 0.0 0.0" />
-            <mass value="0.9360217886690454" />
-            <inertia ixx="0.009459041504582138" iyy="0.013956118845845198" izz="0.020474384137866695" ixy="5.096082182149493e-17" iyz="6.777214071700385e-17" ixz="0.00014505282040201085" />
+            <origin xyz="-0.0006885491492564709 0.0 0.027166633468263507" rpy="0.0 0.0 0.0" />
+            <mass value="1.3323074595986184" />
+            <inertia ixx="0.0006506373798299638" iyy="0.0010832083859234798" izz="0.0015870876476710158" ixy="-1.4279066817834973e-18" iyz="0.0" ixz="1.0665856287759598e-05" />
         </inertial>
         <visual name="base_link_visual">
             <origin xyz="0.0 0.0 0.0" rpy="0.0 0.0 0.0" />
             <geometry>
                 <mesh filename="package://amr_description/meshes/base_link.stl" scale="0.001 0.001 0.001" />
             </geometry>
-            <material name="base_link"/>
         </visual>
         <collision name="base_link_collision">
             <origin xyz="0.0 0.0 0.0" rpy="0.0 0.0 0.0" />
@@ -28,23 +26,20 @@
             </geometry>
         </collision>
     </link>
-
-<!--Wheels-->
     <link name="f_wheel_r">
         <inertial>
-            <origin xyz="-1.7763568394002505e-17 -4.440892098500626e-18 0.026235066114433145" rpy="0.0 -0.0 0.0" />
-            <mass value="1.3127916188565099" />
-            <inertia ixx="0.003348709408788453" iyy="0.0033487094087883557" izz="0.0060726776588351" ixy="-1.6263032587282567e-18" iyz="2.710505431213761e-18" ixz="0.0" />
+            <origin xyz="0.0 0.0 0.0075" rpy="0.0 -0.0 0.0" />
+            <mass value="0.027390760948486005" />
+            <inertia ixx="4.793383165985085e-06" iyy="4.793383165984855e-06" izz="8.559612796401754e-06" ixy="0.0" iyz="0.0" ixz="-6.776263578034403e-21" />
         </inertial>
         <visual name="f_wheel_r_visual">
-            <origin xyz="-0.15 0.0025 -0.15937500000000002" rpy="-1.5707963267948966 -0.0 0.0" />
+            <origin xyz="-0.04 -0.025 -0.0425" rpy="-1.5707963267948966 -0.0 0.0" />
             <geometry>
                 <mesh filename="package://amr_description/meshes/f_wheel_r.stl" scale="0.001 0.001 0.001" />
             </geometry>
-            <material name="Wheels"/>
         </visual>
         <collision name="f_wheel_r_collision">
-            <origin xyz="-0.15 0.0025 -0.15937500000000002" rpy="-1.5707963267948966 -0.0 0.0" />
+            <origin xyz="-0.04 -0.025 -0.0425" rpy="-1.5707963267948966 -0.0 0.0" />
             <geometry>
                 <mesh filename="package://amr_description/meshes/f_wheel_r.stl" scale="0.001 0.001 0.001" />
             </geometry>
@@ -52,19 +47,18 @@
     </link>
     <link name="f_wheel_l">
         <inertial>
-            <origin xyz="-3.552713678800501e-17 1.6653345369377347e-17 0.02623506611443311" rpy="0.0 -0.0 0.0" />
-            <mass value="1.3127916188565103" />
-            <inertia ixx="0.0033487094087884667" iyy="0.0033487094087883695" izz="0.00607267765883511" ixy="-1.3010426069826053e-18" iyz="-4.336808689942018e-19" ixz="-1.3877787807814457e-17" />
+            <origin xyz="0.0 0.0 0.0075" rpy="0.0 -0.0 0.0" />
+            <mass value="0.027390760948486005" />
+            <inertia ixx="4.793383165985099e-06" iyy="4.7933831659848684e-06" izz="8.559612796401754e-06" ixy="0.0" iyz="-6.776263578034403e-21" ixz="-6.776263578034403e-21" />
         </inertial>
         <visual name="f_wheel_l_visual">
-            <origin xyz="-0.15 -0.0025 -0.15937500000000002" rpy="1.5707963267948966 -0.0 0.0" />
+            <origin xyz="-0.04 0.025 -0.0425" rpy="1.5707963267948966 -0.0 0.0" />
             <geometry>
                 <mesh filename="package://amr_description/meshes/f_wheel_l.stl" scale="0.001 0.001 0.001" />
             </geometry>
-            <material name="Wheels"/>
         </visual>
         <collision name="f_wheel_l_collision">
-            <origin xyz="-0.15 -0.0025 -0.15937500000000002" rpy="1.5707963267948966 -0.0 0.0" />
+            <origin xyz="-0.04 0.025 -0.0425" rpy="1.5707963267948966 -0.0 0.0" />
             <geometry>
                 <mesh filename="package://amr_description/meshes/f_wheel_l.stl" scale="0.001 0.001 0.001" />
             </geometry>
@@ -72,19 +66,18 @@
     </link>
     <link name="b_wheel_r">
         <inertial>
-            <origin xyz="1.7763568394002505e-17 -1.6653345369377347e-17 0.026235066114433145" rpy="0.0 -0.0 0.0" />
-            <mass value="1.31279161885651" />
-            <inertia ixx="0.0033487094087884667" iyy="0.0033487094087883695" izz="0.006072677658835093" ixy="-2.6020852139652106e-18" iyz="4.336808689942018e-19" ixz="6.938893903907228e-18" />
+            <origin xyz="-8.881784197001253e-18 0.0 0.0075" rpy="0.0 -0.0 0.0" />
+            <mass value="0.027390760948486005" />
+            <inertia ixx="4.793383165985085e-06" iyy="4.793383165984841e-06" izz="8.559612796401754e-06" ixy="-6.776263578034403e-21" iyz="0.0" ixz="-6.776263578034403e-21" />
         </inertial>
         <visual name="b_wheel_r_visual">
-            <origin xyz="0.15 0.0025 -0.15937500000000002" rpy="-1.5707963267948966 -0.0 0.0" />
+            <origin xyz="0.04 -0.025 -0.0425" rpy="-1.5707963267948966 -0.0 0.0" />
             <geometry>
                 <mesh filename="package://amr_description/meshes/b_wheel_r.stl" scale="0.001 0.001 0.001" />
             </geometry>
-            <material name="Wheels"/>
         </visual>
         <collision name="b_wheel_r_collision">
-            <origin xyz="0.15 0.0025 -0.15937500000000002" rpy="-1.5707963267948966 -0.0 0.0" />
+            <origin xyz="0.04 -0.025 -0.0425" rpy="-1.5707963267948966 -0.0 0.0" />
             <geometry>
                 <mesh filename="package://amr_description/meshes/b_wheel_r.stl" scale="0.001 0.001 0.001" />
             </geometry>
@@ -92,106 +85,99 @@
     </link>
     <link name="b_wheel_l">
         <inertial>
-            <origin xyz="1.7763568394002505e-17 2.997602166487923e-17 0.026235066114433145" rpy="0.0 -0.0 0.0" />
-            <mass value="1.31279161885651" />
-            <inertia ixx="0.0033487094087884736" iyy="0.0033487094087883557" izz="0.0060726776588351065" ixy="-1.0842021724855044e-19" iyz="2.2768245622195593e-18" ixz="0.0" />
+            <origin xyz="-8.881784197001253e-18 0.0 0.0075" rpy="0.0 -0.0 0.0" />
+            <mass value="0.027390760948486005" />
+            <inertia ixx="4.793383165985099e-06" iyy="4.793383165984841e-06" izz="8.559612796401754e-06" ixy="6.776263578034403e-21" iyz="-6.776263578034403e-21" ixz="-1.3552527156068805e-20" />
         </inertial>
         <visual name="b_wheel_l_visual">
-            <origin xyz="0.15 -0.0025 -0.15937500000000002" rpy="1.5707963267948966 -0.0 0.0" />
+            <origin xyz="0.04 0.025 -0.0425" rpy="1.5707963267948966 -0.0 0.0" />
             <geometry>
                 <mesh filename="package://amr_description/meshes/b_wheel_l.stl" scale="0.001 0.001 0.001" />
             </geometry>
-            <material name="Wheels"/>
         </visual>
         <collision name="b_wheel_l_collision">
-            <origin xyz="0.15 -0.0025 -0.15937500000000002" rpy="1.5707963267948966 -0.0 0.0" />
+            <origin xyz="0.04 0.025 -0.0425" rpy="1.5707963267948966 -0.0 0.0" />
             <geometry>
                 <mesh filename="package://amr_description/meshes/b_wheel_l.stl" scale="0.001 0.001 0.001" />
             </geometry>
         </collision>
     </link>
 
-<!--Camera link-->
+<!-- Camera -->
     <link name="camera_link">
         <inertial>
-            <origin xyz="0.000784181248604554 -1.5090743243271368e-13 0.018750000000000037" rpy="0.0 -0.0 0.0" />
-            <mass value="0.03705472598311712" />
-            <inertia ixx="4.725459659822421e-05" iyy="1.3979668961784848e-05" izz="4.822081110235731e-05" ixy="8.065807004281012e-17" iyz="-8.66151594899114e-21" ixz="0.0" />
+            <origin xyz="2.1144401675929903e-05 -2.0784716164913716e-18 0.005000000000000009" rpy="0.0 -0.0 0.0" />
+            <mass value="0.02186537558266994" />
+            <inertia ixx="1.640264964297022e-06" iyy="3.5588437804210445e-07" izz="1.6574154808891354e-06" ixy="2.423405746323952e-19" iyz="-1.3944401189291966e-21" ixz="3.3881317890172014e-21" />
         </inertial>
         <visual name="camera_link_visual">
-            <origin xyz="-0.07187533333333333 1.1102230246251566e-18 -0.11" rpy="0.0 -0.0 0.0" />
+            <origin xyz="-0.01916700333333333 1.1102230246251566e-18 -0.05" rpy="0.0 -0.0 0.0" />
             <geometry>
                 <mesh filename="package://amr_description/meshes/camera_link.stl" scale="0.001 0.001 0.001" />
             </geometry>
         </visual>
         <collision name="camera_link_collision">
-            <origin xyz="-0.07187533333333333 1.1102230246251566e-18 -0.11" rpy="0.0 -0.0 0.0" />
+            <origin xyz="-0.01916700333333333 1.1102230246251566e-18 -0.05" rpy="0.0 -0.0 0.0" />
             <geometry>
                 <mesh filename="package://amr_description/meshes/camera_link.stl" scale="0.001 0.001 0.001" />
             </geometry>
         </collision>
     </link>
 
-<!--Lidar link-->
+<!--Lidar-->
     <link name="lidar_link">
         <inertial>
-            <origin xyz="-3.335866296317086e-17 6.004559333370755e-17 0.015000000000000045" rpy="0.0 -0.0 0.0" />
-            <mass value="0.33441151294791577" />
-            <inertia ixx="0.00029211638344078025" iyy="0.00029211638344079304" izz="0.00048586532053086567" ixy="8.031975085032165e-19" iyz="-7.083755804160312e-19" ixz="9.091749575418355e-19" />
+            <origin xyz="0.0 4.996003610813204e-18 0.003999999999999995" rpy="0.0 -0.0 0.0" />
+            <mass value="0.030826877913349836" />
+            <inertia ixx="1.368584934028017e-06" iyy="1.3685849340281254e-06" izz="2.4083498369804205e-06" ixy="7.52316384526264e-37" iyz="-1.0458300891968961e-21" ixz="-6.776263578034403e-21" />
         </inertial>
         <visual name="lidar_link_visual">
-            <origin xyz="0.0 0.0 -0.0475" rpy="3.141592653589793 -0.0 0.0" />
+            <origin xyz="0.0 4.996003610813204e-18 -0.037000000000000005" rpy="0.0 -0.0 0.0" />
             <geometry>
                 <mesh filename="package://amr_description/meshes/lidar_link.stl" scale="0.001 0.001 0.001" />
             </geometry>
-            <material name="lidar_link"/>
         </visual>
         <collision name="lidar_link_collision">
-            <origin xyz="0.0 0.0 -0.0475" rpy="3.141592653589793 -0.0 0.0" />
+            <origin xyz="0.0 4.996003610813204e-18 -0.037000000000000005" rpy="0.0 -0.0 0.0" />
             <geometry>
                 <mesh filename="package://amr_description/meshes/lidar_link.stl" scale="0.001 0.001 0.001" />
             </geometry>
         </collision>
     </link>
 
-<!--Joints-->
-    <joint name="f_wheel_r_revolute" type="continuous">
-        <origin xyz="0.15 -0.15937500000000002 -0.0025" rpy="1.5707963267948966 -0.0 0.0" />
+<!-- Joints -->
+    <joint name="base_link_f_wheel_r_revolute" type="continuous">
+        <origin xyz="0.04 -0.0425 0.025" rpy="1.5707963267948966 -0.0 0.0" />
         <parent link="base_link" />
         <child link="f_wheel_r" />
         <axis xyz="0.0 0.0 1.0" />
-        <dynamics damping="0.1" friction="0.1"/>
     </joint>
-    <joint name="f_wheel_l_revolute" type="continuous">
-        <origin xyz="0.15 0.15937500000000002 -0.0025" rpy="-1.5707963267948966 -0.0 0.0" />
+    <joint name="base_link_f_wheel_l_revolute" type="continuous">
+        <origin xyz="0.04 0.0425 0.025" rpy="-1.5707963267948966 -0.0 0.0" />
         <parent link="base_link" />
         <child link="f_wheel_l" />
         <axis xyz="0.0 0.0 1.0" />
-        <dynamics damping="0.1" friction="0.1"/>
     </joint>
-    <joint name="b_wheel_l_revolute" type="continuous">
-        <origin xyz="-0.15 0.15937500000000002 -0.0025" rpy="-1.5707963267948966 -0.0 0.0" />
+    <joint name="base_link_b_wheel_l_revolute" type="continuous">
+        <origin xyz="-0.04 0.0425 0.025" rpy="-1.5707963267948966 -0.0 0.0" />
         <parent link="base_link" />
         <child link="b_wheel_l" />
         <axis xyz="0.0 0.0 1.0" />
-        <dynamics damping="0.1" friction="0.1"/>
     </joint>
-    <joint name="b_wheel_r_revolute" type="continuous">
-        <origin xyz="-0.15 -0.15937500000000002 -0.0025" rpy="1.5707963267948966 -0.0 0.0" />
+    <joint name="base_link_b_wheel_r_revolute" type="continuous">
+        <origin xyz="-0.04 -0.0425 0.025" rpy="1.5707963267948966 -0.0 0.0" />
         <parent link="base_link" />
         <child link="b_wheel_r" />
         <axis xyz="0.0 0.0 1.0" />
-        <dynamics damping="0.1" friction="0.1"/>
     </joint>
-    <joint name="camera_rotation" type="revolute">
-        <origin xyz="0.07187500000000001 0.0 0.11" rpy="0.0 -0.0 0.0" />
+    <joint name="base_link_camera_rotation" type="continuous">
+        <origin xyz="0.01916667 0.0 0.05" rpy="0.0 -0.0 0.0" />
         <parent link="base_link" />
         <child link="camera_link" />
         <axis xyz="0.0 0.0 1.0" />
-        <limit lower="-1.5707963267948966" upper="1.5707963267948966" effort="100" velocity="1.0"/>
     </joint>
-    <joint name="lidar_rotation" type="continuous">
-        <origin xyz="0.0 0.0 -0.0475" rpy="3.141592653589793 -0.0 0.0" />
+    <joint name="base_link_lidar_rotation" type="continuous">
+        <origin xyz="-0.0275 0.0 0.06" rpy="0.0 -0.0 0.0" />
         <parent link="base_link" />
         <child link="lidar_link" />
         <axis xyz="0.0 0.0 1.0" />

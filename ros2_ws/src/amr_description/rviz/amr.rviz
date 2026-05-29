@@ -7,6 +7,7 @@ Panels:
         - /Global Options1
         - /Status1
         - /RobotModel1
+        - /Map1
       Splitter Ratio: 0.5
     Tree Height: 827
   - Class: rviz_common/Selection
@@ -110,46 +111,43 @@ Visualization Manager:
       Value: true
       Visual Enabled: true
     - Class: rviz_default_plugins/TF
-      Enabled: true
+      Enabled: false
       Filter (blacklist): ""
       Filter (whitelist): ""
       Frame Timeout: 15
       Frames:
         All Enabled: true
-        b_wheel_l:
-          Value: true
-        b_wheel_r:
-          Value: true
-        base_link:
-          Value: true
-        camera_link:
-          Value: true
-        f_wheel_l:
-          Value: true
-        f_wheel_r:
-          Value: true
-        lidar_link:
-          Value: true
       Marker Scale: 1
       Name: TF
       Show Arrows: true
       Show Axes: true
       Show Names: false
       Tree:
-        base_link:
-          b_wheel_l:
-            {}
-          b_wheel_r:
-            {}
-          camera_link:
-            {}
-          f_wheel_l:
-            {}
-          f_wheel_r:
-            {}
-          lidar_link:
-            {}
+        {}
       Update Interval: 0
+      Value: false
+    - Alpha: 0.699999988079071
+      Binary representation: false
+      Binary threshold: 100
+      Class: rviz_default_plugins/Map
+      Color Scheme: map
+      Draw Behind: false
+      Enabled: true
+      Name: Map
+      Topic:
+        Depth: 5
+        Durability Policy: Volatile
+        Filter size: 10
+        History Policy: Keep Last
+        Reliability Policy: Reliable
+        Value: ""
+      Update Topic:
+        Depth: 5
+        Durability Policy: Volatile
+        History Policy: Keep Last
+        Reliability Policy: Reliable
+        Value: ""
+      Use Timestamp: false
       Value: true
   Enabled: true
   Global Options:
@@ -197,7 +195,7 @@ Visualization Manager:
   Views:
     Current:
       Class: rviz_default_plugins/Orbit
-      Distance: 2.4243969917297363
+      Distance: 4.12031888961792
       Enable Stereo Rendering:
         Stereo Eye Separation: 0.05999999865889549
         Stereo Focal Distance: 1
@@ -212,10 +210,10 @@ Visualization Manager:
       Invert Z Axis: false
       Name: Current View
       Near Clip Distance: 0.009999999776482582
-      Pitch: 0.6453980803489685
+      Pitch: 1.5697963237762451
       Target Frame: <Fixed Frame>
       Value: Orbit (rviz)
-      Yaw: 0.5953934788703918
+      Yaw: 1.3603825569152832
     Saved: ~
 Window Geometry:
   Displays:

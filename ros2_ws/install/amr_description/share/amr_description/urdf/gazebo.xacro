@@ -1,0 +1,122 @@
+<?xml version="1.0"?>
+
+<robot xmlns:xacro="http://www.ros.org/wiki/xacro">
+
+    <!-- ================= BASE LINK ================= -->
+
+    <gazebo reference="base_link">
+
+        <material>Gazebo/Orange</material>
+
+        <mu1>1.0</mu1>
+        <mu2>1.0</mu2>
+
+        <kp>1000000.0</kp>
+        <kd>100.0</kd>
+
+    </gazebo>
+
+    <!-- ================= RIGHT WHEEL 1 ================= -->
+
+    <gazebo reference="r_wheel_link_1">
+
+        <material>Gazebo/Black</material>
+
+        <mu1>2.0</mu1>
+        <mu2>2.0</mu2>
+
+        <kp>1000000.0</kp>
+        <kd>100.0</kd>
+
+        <fdir1>1 0 0</fdir1>
+
+    </gazebo>
+
+    <!-- ================= RIGHT WHEEL 2 ================= -->
+
+    <gazebo reference="r_wheel_link_2">
+
+        <material>Gazebo/Black</material>
+
+        <mu1>2.0</mu1>
+        <mu2>2.0</mu2>
+
+        <kp>1000000.0</kp>
+        <kd>100.0</kd>
+
+        <fdir1>1 0 0</fdir1>
+
+    </gazebo>
+
+    <!-- ================= LEFT WHEEL 1 ================= -->
+
+    <gazebo reference="l_wheel_link_1">
+
+        <material>Gazebo/Black</material>
+
+        <mu1>2.0</mu1>
+        <mu2>2.0</mu2>
+
+        <kp>1000000.0</kp>
+        <kd>100.0</kd>
+
+        <fdir1>1 0 0</fdir1>
+
+    </gazebo>
+
+    <!-- ================= LEFT WHEEL 2 ================= -->
+
+    <gazebo reference="l_wheel_link_2">
+
+        <material>Gazebo/Black</material>
+
+        <mu1>2.0</mu1>
+        <mu2>2.0</mu2>
+
+        <kp>1000000.0</kp>
+        <kd>100.0</kd>
+
+        <fdir1>1 0 0</fdir1>
+
+    </gazebo>
+
+    <!-- ================= DIFFERENTIAL DRIVE ================= -->
+
+    <gazebo>
+        <plugin name="diff_drive_controller"
+                filename="libgazebo_ros_diff_drive.so">
+
+            <ros>
+                <namespace>/</namespace>
+            </ros>
+
+            <update_rate>50</update_rate>
+
+            <!-- LEFT SIDE -->
+            <left_joint>l_wheel_joint_1</left_joint>
+            <left_joint>l_wheel_joint_2</left_joint>
+
+            <!-- RIGHT SIDE -->
+            <right_joint>r_wheel_joint_1</right_joint>
+            <right_joint>r_wheel_joint_2</right_joint>
+
+            <wheel_separation>0.32</wheel_separation>
+            <wheel_diameter>0.10</wheel_diameter>
+
+            <max_wheel_torque>20</max_wheel_torque>
+            <max_wheel_acceleration>10.0</max_wheel_acceleration>
+
+            <publish_odom>true</publish_odom>
+            <publish_odom_tf>true</publish_odom_tf>
+            <publish_wheel_tf>true</publish_wheel_tf>
+
+            <odometry_frame>odom</odometry_frame>
+            <robot_base_frame>base_link</robot_base_frame>
+
+            <command_topic>cmd_vel</command_topic>
+            <odometry_topic>odom</odometry_topic>
+
+        </plugin>
+    </gazebo>
+
+</robot>

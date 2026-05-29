@@ -80,43 +80,123 @@
 
     </gazebo>
 
+    <!-- Camera Sensor Plugin -->
+        <gazebo reference="camera_link">
+            <sensor name="camera_sensor" type="camera">
+                <topic>camera/image_raw</topic>
+                <update_rate>30.0</update_rate>
+                <camera>
+                    <horizontal_fov>1.047</horizontal_fov>
+                    <image>
+                        <width>640</width>
+                        <height>480</height>
+                        <format>R8G8B8</format>
+                    </image>
+                    <clip>
+                        <near>0.1</near>
+                        <far>100.0</far>
+                    </clip>
+                </camera>
+                <plugin name="camera_controller" filename="libgazebo_ros_camera.so">
+                    <ros>
+                        <namespace>/camera</namespace>
+                    </ros>
+                    <frame_name>camera_link</frame_name>
+                </plugin>
+            </sensor>
+        </gazebo>
+
+
+    <!-- LiDAR Sensor Plugin -->
+        <gazebo reference="lidar_link">
+            <sensor name="lidar_sensor" type="ray">
+                <topic>scan</topic>
+                <update_rate>10.0</update_rate>
+                <ray>
+                    <scan>
+                        <horizontal>
+                            <samples>720</samples>
+                            <resolution>1</resolution>
+                            <min_angle>-3.14159</min_angle>
+                            <max_angle>3.14159</max_angle>
+                        </horizontal>
+                    </scan>
+                    <range>
+                        <min>0.12</min>
+                        <max>12.0</max>
+                        <resolution>0.01</resolution>
+                    </range>
+                </ray>
+                <plugin name="laser_controller" filename="libgazebo_ros_ray_sensor.so">
+                    <ros>
+                        <remapping>~/out:=scan</remapping>
+                    </ros>
+                    <output_type>sensor_msgs/LaserScan</output_type>
+                    <frame_name>lidar_link</frame_name>
+                </plugin>
+            </sensor>
+        </gazebo>
+
     <!-- ================= DIFFERENTIAL DRIVE ================= -->
 
+    <!-- ===================================================== -->
+    <!-- ROS2 CONTROL -->
+    <!-- ===================================================== -->
+
+    <ros2_control name="GazeboSimSystem" type="system">
+
+        <hardware>
+            <plugin>gz_ros2_control/GazeboSimSystem</plugin>
+        </hardware>
+
+        <!-- Front Right Wheel -->
+        <joint name="f_wheel_r_revolute">
+            <command_interface name="velocity"/>
+            <state_interface name="position"/>
+            <state_interface name="velocity"/>
+        </joint>
+
+        <!-- Front Left Wheel -->
+        <joint name="f_wheel_l_revolute">
+            <command_interface name="velocity"/>
+            <state_interface name="position"/>
+            <state_interface name="velocity"/>
+        </joint>
+
+        <!-- Back Right Wheel -->
+        <joint name="b_wheel_r_revolute">
+            <command_interface name="velocity"/>
+            <state_interface name="position"/>
+            <state_interface name="velocity"/>
+        </joint>
+
+        <!-- Back Left Wheel -->
+        <joint name="b_wheel_l_revolute">
+            <command_interface name="velocity"/>
+            <state_interface name="position"/>
+            <state_interface name="velocity"/>
+        </joint>
+
+    </ros2_control>
+
+
+    <!-- ===================================================== -->
+    <!-- GAZEBO HARMONIC ROS2 CONTROL PLUGIN -->
+    <!-- ===================================================== -->
+
     <gazebo>
-        <plugin name="diff_drive_controller"
-                filename="libgazebo_ros_diff_drive.so">
 
-            <ros>
-                <namespace>/</namespace>
-            </ros>
+        <plugin
+            filename="libgz_ros2_control-system.so"
+            name="gz_ros2_control::GazeboSimROS2ControlPlugin">
 
-            <update_rate>50</update_rate>
-
-            <!-- LEFT SIDE -->
-            <left_joint>l_wheel_joint_1</left_joint>
-            <left_joint>l_wheel_joint_2</left_joint>
-
-            <!-- RIGHT SIDE -->
-            <right_joint>r_wheel_joint_1</right_joint>
-            <right_joint>r_wheel_joint_2</right_joint>
-
-            <wheel_separation>0.32</wheel_separation>
-            <wheel_diameter>0.10</wheel_diameter>
-
-            <max_wheel_torque>20</max_wheel_torque>
-            <max_wheel_acceleration>10.0</max_wheel_acceleration>
-
-            <publish_odom>true</publish_odom>
-            <publish_odom_tf>true</publish_odom_tf>
-            <publish_wheel_tf>true</publish_wheel_tf>
-
-            <odometry_frame>odom</odometry_frame>
-            <robot_base_frame>base_link</robot_base_frame>
-
-            <command_topic>cmd_vel</command_topic>
-            <odometry_topic>odom</odometry_topic>
+            <parameters>
+                $(find amr_control)/config/controllers.yaml
+            </parameters>
 
         </plugin>
+
     </gazebo>
+
 
 </robot>

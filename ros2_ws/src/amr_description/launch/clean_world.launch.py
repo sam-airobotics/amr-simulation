@@ -29,7 +29,7 @@ def generate_launch_description():
     # =========================
 
     xacro_file = os.path.join(
-        pkg_path,
+        get_package_share_directory('amr_description'),
         'urdf',
         'amr.xacro'
     )
@@ -63,8 +63,8 @@ def generate_launch_description():
 
     gazebo_resource_path = SetEnvironmentVariable(
         name='GZ_SIM_RESOURCE_PATH',
-        value=os.path.join(
-            pkg_path
+        value=os.path.dirname(
+            get_package_share_directory('amr_description'),
         )
     )
 
@@ -158,7 +158,7 @@ def generate_launch_description():
         package='ros_gz_bridge',
         executable='parameter_bridge',
         arguments=[
-            '/clock@rosgraph_msgs/msg/Clock[gz.msgs.Clock'
+            '/clock@rosgraph_msgs/msg/Clock[gz.msgs.Clock]'
         ],
         output='screen'
     )
@@ -167,7 +167,7 @@ def generate_launch_description():
         package='ros_gz_bridge',
         executable='parameter_bridge',
         arguments=[
-            '/camera/image_raw@sensor_msgs/msg/Image[gz.msgs.Image'
+            '/camera/image_raw@sensor_msgs/msg/Image[gz.msgs.Image]'
         ]
     )
 
@@ -175,7 +175,30 @@ def generate_launch_description():
         package='ros_gz_bridge',
         executable='parameter_bridge',
         arguments=[
-            '/scan@sensor_msgs/msg/LaserScan[gz.msgs.LaserScan'
+            '/scan@sensor_msgs/msg/LaserScan[gz.msgs.LaserScan]'
+        ]
+    )
+
+    diff_drive_spawner = Node(
+        package='controller_manager',
+        executable='spawner',
+        arguments=[
+            'diff_drive_controller',
+            '--controller-manager', '/controller_manager'
+        ],
+        output='screen'
+    )
+
+    # =========================
+    # TELEOP TWIST KEYBOARD
+    # =========================
+
+    teleop_node = Node(
+        package='teleop_twist_keyboard',
+        executable='teleop_twist_keyboard',
+        output='screen',
+        remappings=[
+            ('/cmd_vel', '/diff_drive_controller/cmd_vel')
         ]
     )
     
@@ -186,21 +209,32 @@ def generate_launch_description():
     return LaunchDescription([
 
         gazebo_resource_path,
-
-        gazebo,
-
-        robot_state_publisher,
-
-        joint_state_publisher,
-
-        joint_state_broadcaster_spawner,
-
-        spawn_robot,
         
+        gazebo,
+        
+        # CLOCK MUST BE HERE (after gazebo, before everything else)
         clock_bridge,
-
+        
+        # Then the rest
+        robot_state_publisher,
+        spawn_robot,
         camera_bridge,
-
         lidar_bridge,
+
+        # Controllers with delays
+        TimerAction(
+            period=3.0,
+            actions=[joint_state_broadcaster_spawner]
+        ),
+        
+        TimerAction(
+            period=4.0,
+            actions=[diff_drive_spawner]
+        ),
+
+        TimerAction(
+            period=5.0,
+            actions=[teleop_node]
+        ),
 
     ])

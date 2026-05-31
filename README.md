@@ -15,6 +15,7 @@ The simulation environment is designed for understanding the core concepts of mo
 </ul>
 
 ![AMR](images/amr_rviz.png)
+![AMR](images/amr_gazebo.png)
 
 ---
 

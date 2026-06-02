@@ -6,8 +6,6 @@
 
   <!-- Include gazebo -->
   <xacro:include filename="$(find amr_description)/urdf/gazebo.xacro"/>
-
-    <link name="odom"/>
     
     <link name="base_link">
         <inertial>
@@ -25,7 +23,7 @@
         <collision name="base_link_collision">
             <origin xyz="0.0 0.0 0.0" rpy="0.0 0.0 0.0" />
             <geometry>
-                <mesh filename="package://amr_description/meshes/base_link.stl" scale="0.001 0.001 0.001" />
+                <box size="0.10 0.03 0.010"/>
             </geometry>
         </collision>
     </link>
@@ -45,7 +43,7 @@
         <collision name="f_wheel_r_collision">
             <origin xyz="-0.04 -0.025 -0.0425" rpy="-1.5707963267948966 -0.0 0.0" />
             <geometry>
-                <mesh filename="package://amr_description/meshes/f_wheel_r.stl" scale="0.001 0.001 0.001" />
+                <cylinder radius="0.05" length="0.015"/>
             </geometry>
         </collision>
     </link>
@@ -65,7 +63,7 @@
         <collision name="f_wheel_l_collision">
             <origin xyz="-0.04 0.025 -0.0425" rpy="1.5707963267948966 -0.0 0.0" />
             <geometry>
-                <mesh filename="package://amr_description/meshes/f_wheel_l.stl" scale="0.001 0.001 0.001" />
+                <cylinder radius="0.05" length="0.015"/>
             </geometry>
         </collision>
     </link>
@@ -85,7 +83,7 @@
         <collision name="b_wheel_r_collision">
             <origin xyz="0.04 -0.025 -0.0425" rpy="-1.5707963267948966 -0.0 0.0" />
             <geometry>
-                <mesh filename="package://amr_description/meshes/b_wheel_r.stl" scale="0.001 0.001 0.001" />
+                <cylinder radius="0.05" length="0.015"/>
             </geometry>
         </collision>
     </link>
@@ -105,7 +103,7 @@
         <collision name="b_wheel_l_collision">
             <origin xyz="0.04 0.025 -0.0425" rpy="1.5707963267948966 -0.0 0.0" />
             <geometry>
-                <mesh filename="package://amr_description/meshes/b_wheel_l.stl" scale="0.001 0.001 0.001" />
+                <cylinder radius="0.05" length="0.015"/>
             </geometry>
         </collision>
     </link>
@@ -127,7 +125,7 @@
         <collision name="camera_link_collision">
             <origin xyz="-0.01916700333333333 1.1102230246251566e-18 -0.05" rpy="0.0 -0.0 0.0" />
             <geometry>
-                <mesh filename="package://amr_description/meshes/camera_link.stl" scale="0.001 0.001 0.001" />
+                <box size="0.011 0.030 0.010"/>
             </geometry>
         </collision>
     </link>
@@ -149,17 +147,12 @@
         <collision name="lidar_link_collision">
             <origin xyz="0.0 4.996003610813204e-18 -0.037000000000000005" rpy="0.0 -0.0 0.0" />
             <geometry>
-                <mesh filename="package://amr_description/meshes/lidar_link.stl" scale="0.001 0.001 0.001" />
+                <cylinder radius="0.025" length="0.008"/>
             </geometry>
         </collision>
     </link>
 
 <!-- Joints -->
-    <joint name="odom_to_base_link" type="fixed">
-        <origin xyz="0.0 0.0 0.0" rpy="0.0 0.0 0.0" />
-        <parent link="odom" />
-        <child link="base_link" />
-    </joint>
     <joint name="f_wheel_r_revolute" type="continuous">
         <origin xyz="0.04 -0.0425 0.025" rpy="1.5707963267948966 -0.0 0.0" />
         <parent link="base_link" />

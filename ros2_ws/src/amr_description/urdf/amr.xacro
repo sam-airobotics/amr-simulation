@@ -7,6 +7,8 @@
   <!-- Include gazebo -->
   <xacro:include filename="$(find amr_description)/urdf/gazebo.xacro"/>
     
+    <link name="base_footprint"/>
+
     <link name="base_link">
         <inertial>
             <origin xyz="-0.0006885491492564709 0.0 0.027166633468263507" rpy="0.0 0.0 0.0" />
@@ -153,6 +155,12 @@
     </link>
 
 <!-- Joints -->
+
+    <joint name="base_footprint_to_base_link" type="fixed">
+        <origin xyz="0.0 0.0 0.0" rpy="0.0 0.0 0.0" />
+        <parent link="base_footprint" />
+        <child link="base_link" />
+    </joint>
     <joint name="f_wheel_r_revolute" type="continuous">
         <origin xyz="0.04 -0.0425 0.025" rpy="1.5707963267948966 -0.0 0.0" />
         <parent link="base_link" />

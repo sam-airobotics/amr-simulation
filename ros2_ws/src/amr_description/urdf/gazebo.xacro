@@ -12,7 +12,6 @@
         <kp>1000000.0</kp>
         <kd>100.0</kd>
 
-        <collide_bitmask>0x00</collide_bitmask>
     </gazebo>
 
     <!-- ================= front wheels ================= -->
@@ -27,7 +26,6 @@
 
         <fdir1>1 0 0</fdir1>
 
-        <collide_bitmask>0x00</collide_bitmask>
     </gazebo>
 
     <gazebo reference="f_wheel_l">
@@ -40,7 +38,6 @@
 
         <fdir1>1 0 0</fdir1>
 
-        <collide_bitmask>0x00</collide_bitmask>
     </gazebo>
 
     <!-- ================= back wheels ================= -->
@@ -55,7 +52,6 @@
 
         <fdir1>1 0 0</fdir1>
 
-        <collide_bitmask>0x00</collide_bitmask> // masks the collision of the wheel with the ground, allowing for smoother movement
     </gazebo>
 
     <gazebo reference="b_wheel_l">
@@ -68,7 +64,6 @@
 
         <fdir1>1 0 0</fdir1>
 
-        <collide_bitmask>0x00</collide_bitmask>
     </gazebo>
 
     <!-- Camera Sensor Plugin -->

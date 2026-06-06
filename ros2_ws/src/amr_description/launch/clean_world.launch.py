@@ -214,9 +214,9 @@ def generate_launch_description():
             actions=[joint_state_broadcaster_spawner]
         ),
         
-        TimerAction(
-            period=4.0,
-            actions=[diff_drive_spawner]
-        ),
+        # TimerAction(
+        #     period=4.0,
+        #     actions=[diff_drive_spawner]
+        # ),
 
     ])

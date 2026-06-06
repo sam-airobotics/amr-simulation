@@ -1,3 +1,4 @@
+/home/sam/amr-simulation/ros2_ws/install/amr_control/share/amr_control/config/controllers.yaml
 /home/sam/amr-simulation/ros2_ws/install/amr_control/share/ament_index/resource_index/package_run_dependencies/amr_control
 /home/sam/amr-simulation/ros2_ws/install/amr_control/share/ament_index/resource_index/parent_prefix_path/amr_control
 /home/sam/amr-simulation/ros2_ws/install/amr_control/share/amr_control/environment/ament_prefix_path.sh
@@ -13,4 +14,3 @@
 /home/sam/amr-simulation/ros2_ws/install/amr_control/share/amr_control/cmake/amr_controlConfig.cmake
 /home/sam/amr-simulation/ros2_ws/install/amr_control/share/amr_control/cmake/amr_controlConfig-version.cmake
 /home/sam/amr-simulation/ros2_ws/install/amr_control/share/amr_control/package.xml
-/home/sam/amr-simulation/ros2_ws/install/amr_control/share/amr_control/config/controllers.yaml

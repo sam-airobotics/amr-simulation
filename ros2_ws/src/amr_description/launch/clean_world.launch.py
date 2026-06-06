@@ -1,222 +1,66 @@
-from launch import LaunchDescription
-from launch.actions import IncludeLaunchDescription
-from launch.launch_description_sources import PythonLaunchDescriptionSource
-
-from launch.actions import SetEnvironmentVariable
-
-from launch_ros.actions import Node
-
-from launch.substitutions import Command
-from launch_ros.parameter_descriptions import ParameterValue
-
-from launch.actions import TimerAction
-
-from ament_index_python.packages import get_package_share_directory
-
 import os
-
+from ament_index_python.packages import get_package_share_directory
+from launch import LaunchDescription
+from launch.actions import IncludeLaunchDescription, TimerAction
+from launch.launch_description_sources import PythonLaunchDescriptionSource
+from launch_ros.actions import Node
+import xacro
+from os.path import join
 
 def generate_launch_description():
 
-    # =========================
-    # PACKAGE PATH
-    # =========================
+    pkg_ros_gz_sim = get_package_share_directory('ros_gz_sim')
+    pkg_ros_gz_rbot = get_package_share_directory('amr_description')
 
-    pkg_path = get_package_share_directory('amr_description')
 
-    # =========================
-    # XACRO FILE
-    # =========================
+    robot_description_file = os.path.join(pkg_ros_gz_rbot, 'urdf', 'amr.xacro')
+    ros_gz_bridge_config = os.path.join(pkg_ros_gz_rbot, 'config', 'ros_gz_bridge_gazebo.yaml')
+    
+    robot_description_config = xacro.process_file(robot_description_file)
+    robot_description = {'robot_description': robot_description_config.toxml()}
 
-    xacro_file = os.path.join(
-        get_package_share_directory('amr_description'),
-        'urdf',
-        'amr.xacro'
-    )
-
-    # =========================
-    # WORLD FILE
-    # =========================
-
-    world_file = os.path.join(
-        pkg_path,
-        'worlds',
-        'clean_world',
-        'model.sdf'
-    )
-
-    # =========================
-    # ROBOT DESCRIPTION
-    # =========================
-
-    robot_description = ParameterValue(
-        Command([
-            'xacro ',
-            xacro_file
-        ]),
-        value_type=str
-    )
-
-    #==========================
-    #Resource Path set
-    #==========================
-
-    gazebo_resource_path = SetEnvironmentVariable(
-        name='GZ_SIM_RESOURCE_PATH',
-        value=os.path.dirname(
-            get_package_share_directory('amr_description'),
-        )
-    )
-
-    # =========================
-    # GAZEBO HARMONIC
-    # =========================
-
-    gazebo = IncludeLaunchDescription(
-        PythonLaunchDescriptionSource(
-            os.path.join(
-                get_package_share_directory('ros_gz_sim'),
-                'launch',
-                'gz_sim.launch.py'
-            )
-        ),
-        launch_arguments={
-            'gz_args': f'-r {world_file}'
-        }.items()
-    )
-
-    # =========================
-    # ROBOT STATE PUBLISHER
-    # =========================
-
+   
     robot_state_publisher = Node(
         package='robot_state_publisher',
         executable='robot_state_publisher',
-
-        parameters=[{
-            'robot_description': robot_description,
-            'use_sim_time': True
-        }],
-
-        output='screen'
-        )
-
-    # =========================
-    # JOINT STATE PUBLISHER
-    # =========================
-
-    joint_state_publisher = Node(
-        package='joint_state_publisher',
-        executable='joint_state_publisher',
-        output='screen'
+        name='robot_state_publisher',
+        output='screen',
+        parameters=[robot_description],
     )
 
-    # =========================
-    # SPAWN ROBOT
-    # =========================
-
-    spawn_robot = Node(
-        package='ros_gz_sim',
-        executable='create',
-
-        arguments=[
-            '-topic',
-            'robot_description',
-
-            '-name',
-            'amr',
-
-            '-x', '0.0',
-            '-y', '0.0',
-            '-z', '-0.2',
-
-            '-R', '0.0',
-            '-P', '0.0',
-            '-Y', '3.1415926535' 
-        ],
-
-        output='screen'
+   
+    gazebo = IncludeLaunchDescription(
+        PythonLaunchDescriptionSource(join(pkg_ros_gz_sim, "launch", "gz_sim.launch.py")),
+        launch_arguments={"gz_args": "-r -v 4 empty.sdf"}.items()
     )
 
-    # =========================
-    # JOINT STATE BROADCASTER
-    # =========================
-
-    joint_state_broadcaster_spawner = Node(
-        package='controller_manager',
-        executable='spawner',
-
-        arguments=[
-            'joint_state_broadcaster'
-        ],
-
-        output='screen'
+    spawn_robot = TimerAction(
+        period=5.0,  
+        actions=[Node(
+            package='ros_gz_sim',
+            executable='create',
+            arguments=[
+                "-topic", "/robot_description",
+                "-name", "amr",
+                "-x", "0.0",
+                "-y", "0.0",
+                "-z", "0.32",
+                "-Y", "0.0"
+            ],
+            output='screen'
+        )]
     )
 
-
-    clock_bridge = Node(
+    ros_gz_bridge = Node(
         package='ros_gz_bridge',
         executable='parameter_bridge',
-        arguments=[
-            '/clock@rosgraph_msgs/msg/Clock[gz.msgs.Clock'
-        ],
+        parameters=[{'config_file': ros_gz_bridge_config}],
         output='screen'
     )
-    
-    camera_bridge = Node(
-        package='ros_gz_bridge',
-        executable='parameter_bridge',
-        arguments=[
-            '/camera/image_raw@sensor_msgs/msg/Image[gz.msgs.Image'
-        ]
-    )
-
-    lidar_bridge = Node(
-        package='ros_gz_bridge',
-        executable='parameter_bridge',
-        arguments=[
-            '/scan@sensor_msgs/msg/LaserScan[gz.msgs.LaserScan'
-        ]
-    )
-
-    diff_drive_spawner = Node(
-        package='controller_manager',
-        executable='spawner',
-        arguments=[
-            'diff_drive_controller',
-            '--controller-manager', '/controller_manager'
-        ],
-        output='screen'
-    )
-    
-    # =========================
-    # LAUNCH DESCRIPTION
-    # =========================
 
     return LaunchDescription([
-
-        gazebo_resource_path,
-        
         gazebo,
-        
-        # CLOCK MUST BE HERE (after gazebo, before everything else)
-        clock_bridge,
-        
-        # Then the rest
-        robot_state_publisher,
         spawn_robot,
-        camera_bridge,
-        lidar_bridge,
-
-        # Controllers with delays
-        TimerAction(
-            period=3.0,
-            actions=[joint_state_broadcaster_spawner]
-        ),
-        
-        # TimerAction(
-        #     period=4.0,
-        #     actions=[diff_drive_spawner]
-        # ),
-
+        ros_gz_bridge,
+        robot_state_publisher,
     ])

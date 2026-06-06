@@ -1,0 +1,62 @@
+[0.014s] Invoking command in '/home/sam/amr-simulation/ros2_ws/build/amr_description': CMAKE_PREFIX_PATH=${CMAKE_PREFIX_PATH}:/opt/ros/jazzy DEBUGINFOD_URLS=https://debuginfod.ubuntu.com /usr/bin/cmake /home/sam/amr-simulation/ros2_ws/src/amr_description -DAMENT_CMAKE_SYMLINK_INSTALL=1 -DCMAKE_INSTALL_PREFIX=/home/sam/amr-simulation/ros2_ws/install/amr_description
+[0.052s] -- Found ament_cmake: 2.5.6 (/opt/ros/jazzy/share/ament_cmake/cmake)
+[0.301s] -- Override CMake install command with custom implementation using symlinks instead of copying resources
+[0.309s] -- Found ament_lint_auto: 0.17.5 (/opt/ros/jazzy/share/ament_lint_auto/cmake)
+[0.414s] -- Added test 'flake8' to check Python code syntax and style conventions
+[0.414s] -- Configured 'flake8' exclude dirs and/or files: 
+[0.415s] -- Added test 'lint_cmake' to check CMake code style
+[0.416s] -- Added test 'pep257' to check Python code against some of the docstring style conventions in PEP 257
+[0.418s] -- Added test 'xmllint' to check XML markup files
+[0.420s] -- Configuring done (0.4s)
+[0.425s] -- Generating done (0.0s)
+[0.428s] -- Build files have been written to: /home/sam/amr-simulation/ros2_ws/build/amr_description
+[0.435s] Invoked command in '/home/sam/amr-simulation/ros2_ws/build/amr_description' returned '0': CMAKE_PREFIX_PATH=${CMAKE_PREFIX_PATH}:/opt/ros/jazzy DEBUGINFOD_URLS=https://debuginfod.ubuntu.com /usr/bin/cmake /home/sam/amr-simulation/ros2_ws/src/amr_description -DAMENT_CMAKE_SYMLINK_INSTALL=1 -DCMAKE_INSTALL_PREFIX=/home/sam/amr-simulation/ros2_ws/install/amr_description
+[0.436s] Invoking command in '/home/sam/amr-simulation/ros2_ws/build/amr_description': CMAKE_PREFIX_PATH=${CMAKE_PREFIX_PATH}:/opt/ros/jazzy DEBUGINFOD_URLS=https://debuginfod.ubuntu.com /usr/bin/cmake --build /home/sam/amr-simulation/ros2_ws/build/amr_description -- -j14 -l14
+[0.476s] Invoked command in '/home/sam/amr-simulation/ros2_ws/build/amr_description' returned '0': CMAKE_PREFIX_PATH=${CMAKE_PREFIX_PATH}:/opt/ros/jazzy DEBUGINFOD_URLS=https://debuginfod.ubuntu.com /usr/bin/cmake --build /home/sam/amr-simulation/ros2_ws/build/amr_description -- -j14 -l14
+[0.478s] Invoking command in '/home/sam/amr-simulation/ros2_ws/build/amr_description': CMAKE_PREFIX_PATH=${CMAKE_PREFIX_PATH}:/opt/ros/jazzy DEBUGINFOD_URLS=https://debuginfod.ubuntu.com /usr/bin/cmake --install /home/sam/amr-simulation/ros2_ws/build/amr_description
+[0.488s] -- Install configuration: ""
+[0.488s] -- Execute custom install script
+[0.489s] -- Up-to-date symlink: /home/sam/amr-simulation/ros2_ws/install/amr_description/share/ament_index/resource_index/package_run_dependencies/amr_description
+[0.489s] -- Up-to-date symlink: /home/sam/amr-simulation/ros2_ws/install/amr_description/share/ament_index/resource_index/parent_prefix_path/amr_description
+[0.489s] -- Up-to-date symlink: /home/sam/amr-simulation/ros2_ws/install/amr_description/share/amr_description/environment/ament_prefix_path.sh
+[0.489s] -- Up-to-date symlink: /home/sam/amr-simulation/ros2_ws/install/amr_description/share/amr_description/environment/ament_prefix_path.dsv
+[0.489s] -- Up-to-date symlink: /home/sam/amr-simulation/ros2_ws/install/amr_description/share/amr_description/environment/path.sh
+[0.490s] -- Up-to-date symlink: /home/sam/amr-simulation/ros2_ws/install/amr_description/share/amr_description/environment/path.dsv
+[0.490s] -- Up-to-date symlink: /home/sam/amr-simulation/ros2_ws/install/amr_description/share/amr_description/local_setup.bash
+[0.490s] -- Up-to-date symlink: /home/sam/amr-simulation/ros2_ws/install/amr_description/share/amr_description/local_setup.sh
+[0.490s] -- Up-to-date symlink: /home/sam/amr-simulation/ros2_ws/install/amr_description/share/amr_description/local_setup.zsh
+[0.490s] -- Up-to-date symlink: /home/sam/amr-simulation/ros2_ws/install/amr_description/share/amr_description/local_setup.dsv
+[0.490s] -- Symlinking: /home/sam/amr-simulation/ros2_ws/install/amr_description/share/amr_description/package.dsv
+[0.500s] -- Up-to-date symlink: /home/sam/amr-simulation/ros2_ws/install/amr_description/share/ament_index/resource_index/packages/amr_description
+[0.501s] -- Up-to-date symlink: /home/sam/amr-simulation/ros2_ws/install/amr_description/share/amr_description/cmake/amr_descriptionConfig.cmake
+[0.502s] -- Up-to-date symlink: /home/sam/amr-simulation/ros2_ws/install/amr_description/share/amr_description/cmake/amr_descriptionConfig-version.cmake
+[0.502s] -- Up-to-date symlink: /home/sam/amr-simulation/ros2_ws/install/amr_description/share/amr_description/package.xml
+[0.503s] -- Up-to-date symlink: /home/sam/amr-simulation/ros2_ws/install/amr_description/share/amr_description/launch/clean_world.launch.py
+[0.503s] -- Up-to-date symlink: /home/sam/amr-simulation/ros2_ws/install/amr_description/share/amr_description/launch/display.launch.py
+[0.503s] -- Up-to-date symlink: /home/sam/amr-simulation/ros2_ws/install/amr_description/share/amr_description/launch/obstacle_world.launch.py
+[0.503s] -- Up-to-date symlink: /home/sam/amr-simulation/ros2_ws/install/amr_description/share/amr_description/launch/sensor_world.launch.py
+[0.503s] -- Up-to-date symlink: /home/sam/amr-simulation/ros2_ws/install/amr_description/share/amr_description/urdf/amr.urdf
+[0.503s] -- Up-to-date symlink: /home/sam/amr-simulation/ros2_ws/install/amr_description/share/amr_description/urdf/amr.xacro
+[0.503s] -- Up-to-date symlink: /home/sam/amr-simulation/ros2_ws/install/amr_description/share/amr_description/urdf/gazebo.xacro
+[0.503s] -- Up-to-date symlink: /home/sam/amr-simulation/ros2_ws/install/amr_description/share/amr_description/urdf/materials.xacro
+[0.504s] -- Up-to-date symlink: /home/sam/amr-simulation/ros2_ws/install/amr_description/share/amr_description/meshes/b_wheel_l.stl
+[0.504s] -- Up-to-date symlink: /home/sam/amr-simulation/ros2_ws/install/amr_description/share/amr_description/meshes/b_wheel_r.stl
+[0.505s] -- Up-to-date symlink: /home/sam/amr-simulation/ros2_ws/install/amr_description/share/amr_description/meshes/base_link.stl
+[0.505s] -- Up-to-date symlink: /home/sam/amr-simulation/ros2_ws/install/amr_description/share/amr_description/meshes/camera_link.stl
+[0.505s] -- Up-to-date symlink: /home/sam/amr-simulation/ros2_ws/install/amr_description/share/amr_description/meshes/f_wheel_l.stl
+[0.505s] -- Up-to-date symlink: /home/sam/amr-simulation/ros2_ws/install/amr_description/share/amr_description/meshes/f_wheel_r.stl
+[0.506s] -- Up-to-date symlink: /home/sam/amr-simulation/ros2_ws/install/amr_description/share/amr_description/meshes/lidar_link.stl
+[0.506s] -- Up-to-date symlink: /home/sam/amr-simulation/ros2_ws/install/amr_description/share/amr_description/rviz/amr.rviz
+[0.506s] -- Up-to-date symlink: /home/sam/amr-simulation/ros2_ws/install/amr_description/share/amr_description/worlds/clean_world/meshes/clean_world.mtl
+[0.506s] -- Up-to-date symlink: /home/sam/amr-simulation/ros2_ws/install/amr_description/share/amr_description/worlds/clean_world/meshes/clean_world.obj
+[0.506s] -- Up-to-date symlink: /home/sam/amr-simulation/ros2_ws/install/amr_description/share/amr_description/worlds/clean_world/model.config
+[0.507s] -- Up-to-date symlink: /home/sam/amr-simulation/ros2_ws/install/amr_description/share/amr_description/worlds/clean_world/model.sdf
+[0.509s] -- Up-to-date symlink: /home/sam/amr-simulation/ros2_ws/install/amr_description/share/amr_description/worlds/obstacle_world/meshes/obstacle_world.mtl
+[0.510s] -- Up-to-date symlink: /home/sam/amr-simulation/ros2_ws/install/amr_description/share/amr_description/worlds/obstacle_world/meshes/obstacle_world.obj
+[0.518s] -- Up-to-date symlink: /home/sam/amr-simulation/ros2_ws/install/amr_description/share/amr_description/worlds/obstacle_world/model.config
+[0.518s] -- Up-to-date symlink: /home/sam/amr-simulation/ros2_ws/install/amr_description/share/amr_description/worlds/obstacle_world/model.sdf
+[0.518s] -- Up-to-date symlink: /home/sam/amr-simulation/ros2_ws/install/amr_description/share/amr_description/worlds/sensor_world/meshes/sensor_world.mtl
+[0.520s] -- Up-to-date symlink: /home/sam/amr-simulation/ros2_ws/install/amr_description/share/amr_description/worlds/sensor_world/meshes/sensor_world.obj
+[0.521s] -- Up-to-date symlink: /home/sam/amr-simulation/ros2_ws/install/amr_description/share/amr_description/worlds/sensor_world/model.config
+[0.521s] -- Up-to-date symlink: /home/sam/amr-simulation/ros2_ws/install/amr_description/share/amr_description/worlds/sensor_world/model.sdf
+[0.543s] Invoked command in '/home/sam/amr-simulation/ros2_ws/build/amr_description' returned '0': CMAKE_PREFIX_PATH=${CMAKE_PREFIX_PATH}:/opt/ros/jazzy DEBUGINFOD_URLS=https://debuginfod.ubuntu.com /usr/bin/cmake --install /home/sam/amr-simulation/ros2_ws/build/amr_description

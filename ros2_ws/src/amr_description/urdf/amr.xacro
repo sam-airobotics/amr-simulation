@@ -18,7 +18,7 @@
         <visual name="base_link_visual">
             <origin xyz="0.0 0.0 0.0" rpy="0.0 0.0 0.0" />
             <geometry>
-                <mesh filename="package://amr_description/meshes/base_link.stl" scale="0.001 0.001 0.001" />
+                <mesh filename="file://$(find amr_description)/meshes/base_link.stl" scale="0.001 0.001 0.001" />
             </geometry>
             <material name="base_link"/>
         </visual>
@@ -38,7 +38,7 @@
         <visual name="f_wheel_r_visual">
             <origin xyz="-0.04 -0.025 -0.0425" rpy="-1.5707963267948966 -0.0 0.0" />
             <geometry>
-                <mesh filename="package://amr_description/meshes/f_wheel_r.stl" scale="0.001 0.001 0.001" />
+                <mesh filename="file://$(find amr_description)/meshes/f_wheel_r.stl" scale="0.001 0.001 0.001" />
             </geometry>
             <material name="Wheels"/>
         </visual>
@@ -58,7 +58,7 @@
         <visual name="f_wheel_l_visual">
             <origin xyz="-0.04 0.025 -0.0425" rpy="1.5707963267948966 -0.0 0.0" />
             <geometry>
-                <mesh filename="package://amr_description/meshes/f_wheel_l.stl" scale="0.001 0.001 0.001" />
+                <mesh filename="file://$(find amr_description)/meshes/f_wheel_l.stl" scale="0.001 0.001 0.001" />
             </geometry>
             <material name="Wheels"/>
         </visual>
@@ -78,7 +78,7 @@
         <visual name="b_wheel_r_visual">
             <origin xyz="0.04 -0.025 -0.0425" rpy="-1.5707963267948966 -0.0 0.0" />
             <geometry>
-                <mesh filename="package://amr_description/meshes/b_wheel_r.stl" scale="0.001 0.001 0.001" />
+                <mesh filename="file://$(find amr_description)/meshes/b_wheel_r.stl" scale="0.001 0.001 0.001" />
             </geometry>
             <material name="Wheels"/>
         </visual>
@@ -98,7 +98,7 @@
         <visual name="b_wheel_l_visual">
             <origin xyz="0.04 0.025 -0.0425" rpy="1.5707963267948966 -0.0 0.0" />
             <geometry>
-                <mesh filename="package://amr_description/meshes/b_wheel_l.stl" scale="0.001 0.001 0.001" />
+                <mesh filename="file://$(find amr_description)/meshes/b_wheel_l.stl" scale="0.001 0.001 0.001" />
             </geometry>
             <material name="Wheels"/>
         </visual>
@@ -120,7 +120,7 @@
         <visual name="camera_link_visual">
             <origin xyz="-0.01916700333333333 1.1102230246251566e-18 -0.05" rpy="0.0 -0.0 0.0" />
             <geometry>
-                <mesh filename="package://amr_description/meshes/camera_link.stl" scale="0.001 0.001 0.001" />
+                <mesh filename="file://$(find amr_description)/meshes/camera_link.stl" scale="0.001 0.001 0.001" />
             </geometry>
             <material name="camera_link"/>
         </visual>
@@ -142,7 +142,7 @@
         <visual name="lidar_link_visual">
             <origin xyz="0.0 4.996003610813204e-18 -0.037000000000000005" rpy="0.0 -0.0 0.0" />
             <geometry>
-                <mesh filename="package://amr_description/meshes/lidar_link.stl" scale="0.001 0.001 0.001" />
+                <mesh filename="file://$(find amr_description)/meshes/lidar_link.stl" scale="0.001 0.001 0.001" />
             </geometry>
             <material name="lidar_link"/>
         </visual>

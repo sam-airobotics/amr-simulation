@@ -17,6 +17,7 @@
 /home/sam/amr-simulation/ros2_ws/install/amr_description/share/amr_description/launch/display.launch.py
 /home/sam/amr-simulation/ros2_ws/install/amr_description/share/amr_description/launch/obstacle_world.launch.py
 /home/sam/amr-simulation/ros2_ws/install/amr_description/share/amr_description/launch/sensor_world.launch.py
+/home/sam/amr-simulation/ros2_ws/install/amr_description/share/amr_description/launch/sim.launch.py
 /home/sam/amr-simulation/ros2_ws/install/amr_description/share/amr_description/urdf/amr.urdf
 /home/sam/amr-simulation/ros2_ws/install/amr_description/share/amr_description/urdf/amr.xacro
 /home/sam/amr-simulation/ros2_ws/install/amr_description/share/amr_description/urdf/gazebo.xacro

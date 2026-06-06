@@ -315,6 +315,9 @@ message(STATUS "Execute custom install script")
 
 # begin of custom install code
 
+# install(DIRECTORY "config" "DESTINATION" "share/amr_control")
+ament_cmake_symlink_install_directory("/home/sam/amr-simulation/ros2_ws/src/amr_control" DIRECTORY "config" "DESTINATION" "share/amr_control")
+
 # install(FILES "/home/sam/amr-simulation/ros2_ws/build/amr_control/ament_cmake_index/share/ament_index/resource_index/package_run_dependencies/amr_control" "DESTINATION" "share/ament_index/resource_index/package_run_dependencies")
 ament_cmake_symlink_install_files("/home/sam/amr-simulation/ros2_ws/src/amr_control" FILES "/home/sam/amr-simulation/ros2_ws/build/amr_control/ament_cmake_index/share/ament_index/resource_index/package_run_dependencies/amr_control" "DESTINATION" "share/ament_index/resource_index/package_run_dependencies")
 
@@ -356,6 +359,3 @@ ament_cmake_symlink_install_files("/home/sam/amr-simulation/ros2_ws/src/amr_cont
 
 # install(FILES "/home/sam/amr-simulation/ros2_ws/src/amr_control/package.xml" "DESTINATION" "share/amr_control")
 ament_cmake_symlink_install_files("/home/sam/amr-simulation/ros2_ws/src/amr_control" FILES "/home/sam/amr-simulation/ros2_ws/src/amr_control/package.xml" "DESTINATION" "share/amr_control")
-
-# install(DIRECTORY "config" "DESTINATION" "share/amr_control")
-ament_cmake_symlink_install_directory("/home/sam/amr-simulation/ros2_ws/src/amr_control" DIRECTORY "config" "DESTINATION" "share/amr_control")

@@ -96,28 +96,53 @@ A structured environment for testing robot sensors and visualization.
 
 ---
 
-# ▶️ Running the Simulation
+## ▶️ Running the Simulation
 
+### clone repo
 ```bash
-# Build workspace
-colcon build
+git clone git@github.com:sam-airobotics/amr-simulation.git
+```
 
-# Source workspace
+### move to ros2_ws
+```bash
+cd amr-simulation/ros2_ws
+```
+
+### Build workspace
+```bash
+colcon build --symlink-install
+```
+
+### Source workspace
+```bash
 source install/setup.bash
+```
 
-# Launch simulation
+### Launch simulation
+```bash
 ros2 launch amr_description sim.launch.py
+```
 
-#Launch Mapping
+### Launch Mapping
+```bash
 ros2 launch amr_slam online_async_launch.py
+```
 
-# Control robot
+### Control robot
+```bash
 ros2 run teleop_twist_keyboard teleop_twist_keyboard
 ```
 
-<h2>AMR Simulation Status</h2>
+### Launch Navigation
+```bash
+ros2 launch amr_nav navigation_launch.py
+```
 
-<h3>✅ Completed</h3>
+---
+
+# AMR Simulation Status
+
+## ✅ Completed
 <ul>
     <li>Robot model visualized in RViz.</li>
     <li>Camera sensor integrated and visualized.</li>
@@ -129,7 +154,7 @@ ros2 run teleop_twist_keyboard teleop_twist_keyboard
 ![AMR in RViz](images/amr_camera_lidar.png)
 ![AMR in World](images/amr_world_lidar.png)
 
-<h3>⚠️ Current Issues</h3>
+## ⚠️ Current Issues
 <ul>
     <li>Robot movement via <code>teleop_twist_keyboard</code> is unstable.</li>
     <li>Collision geometries are inaccurate.</li>
@@ -140,7 +165,7 @@ ros2 run teleop_twist_keyboard teleop_twist_keyboard
 ![AMR Mapping](images/amr_mapping_ongoing.png)
 <img width="1920" height="1200" alt="image" src="https://github.com/user-attachments/assets/9c33b825-2532-46b7-96a8-413d8e94b024" />
 
-<h3>🔧 Next Steps</h3>
+## 🔧 Next Steps
 <ul>
     <li>Fix wheel and chassis collision models.</li>
     <li>Tune robot dynamics and friction parameters.</li>

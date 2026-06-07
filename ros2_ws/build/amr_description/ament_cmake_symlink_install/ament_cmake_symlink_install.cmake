@@ -357,5 +357,5 @@ ament_cmake_symlink_install_files("/home/sam/amr-simulation/ros2_ws/src/amr_desc
 # install(FILES "/home/sam/amr-simulation/ros2_ws/src/amr_description/package.xml" "DESTINATION" "share/amr_description")
 ament_cmake_symlink_install_files("/home/sam/amr-simulation/ros2_ws/src/amr_description" FILES "/home/sam/amr-simulation/ros2_ws/src/amr_description/package.xml" "DESTINATION" "share/amr_description")
 
-# install(DIRECTORY "launch" "urdf" "meshes" "rviz" "worlds" "DESTINATION" "share/amr_description")
-ament_cmake_symlink_install_directory("/home/sam/amr-simulation/ros2_ws/src/amr_description" DIRECTORY "launch" "urdf" "meshes" "rviz" "worlds" "DESTINATION" "share/amr_description")
+# install(DIRECTORY "config" "launch" "urdf" "meshes" "rviz" "worlds" "DESTINATION" "share/amr_description")
+ament_cmake_symlink_install_directory("/home/sam/amr-simulation/ros2_ws/src/amr_description" DIRECTORY "config" "launch" "urdf" "meshes" "rviz" "worlds" "DESTINATION" "share/amr_description")

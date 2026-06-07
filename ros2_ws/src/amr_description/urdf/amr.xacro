@@ -45,7 +45,7 @@
         <collision name="f_wheel_r_collision">
             <origin xyz="-0.04 -0.025 -0.0425" rpy="-1.5707963267948966 -0.0 0.0" />
             <geometry>
-                <cylinder radius="0.05" length="0.015"/>
+                <cylinder radius="0.025" length="0.015"/>
             </geometry>
         </collision>
     </link>
@@ -65,7 +65,7 @@
         <collision name="f_wheel_l_collision">
             <origin xyz="-0.04 0.025 -0.0425" rpy="1.5707963267948966 -0.0 0.0" />
             <geometry>
-                <cylinder radius="0.05" length="0.015"/>
+                <cylinder radius="0.025" length="0.015"/>
             </geometry>
         </collision>
     </link>
@@ -85,7 +85,7 @@
         <collision name="b_wheel_r_collision">
             <origin xyz="0.04 -0.025 -0.0425" rpy="-1.5707963267948966 -0.0 0.0" />
             <geometry>
-                <cylinder radius="0.05" length="0.015"/>
+                <cylinder radius="0.025" length="0.015"/>
             </geometry>
         </collision>
     </link>
@@ -105,7 +105,7 @@
         <collision name="b_wheel_l_collision">
             <origin xyz="0.04 0.025 -0.0425" rpy="1.5707963267948966 -0.0 0.0" />
             <geometry>
-                <cylinder radius="0.05" length="0.015"/>
+                <cylinder radius="0.025" length="0.015"/>
             </geometry>
         </collision>
     </link>
@@ -156,10 +156,10 @@
 
 <!-- Joints -->
 
-    <joint name="base_footprint_to_base_link" type="fixed">
+    <joint name="base_link_to_base_footprint" type="fixed">
         <origin xyz="0.0 0.0 0.0" rpy="0.0 0.0 0.0" />
-        <parent link="base_footprint" />
-        <child link="base_link" />
+        <parent link="base_link" />
+        <child link="base_footprint" />
     </joint>
     <joint name="f_wheel_r_revolute" type="continuous">
         <origin xyz="0.04 -0.0425 0.025" rpy="1.5707963267948966 -0.0 0.0" />
@@ -185,13 +185,14 @@
         <child link="b_wheel_r" />
         <axis xyz="0.0 0.0 1.0" />
     </joint>
-    <joint name="camera_rotation" type="continuous">
+    <joint name="camera_rotation" type="revolute">
         <origin xyz="0.01916667 0.0 0.05" rpy="0.0 -0.0 0.0" />
         <parent link="base_link" />
         <child link="camera_link" />
         <axis xyz="0.0 0.0 1.0" />
+        <limit effort="0.0" velocity="0.0" lower="-1.5707963267948966" upper="1.5707963267948966"/>
     </joint>
-    <joint name="lidar_rotation" type="continuous">
+    <joint name="lidar_rotation" type="fixed">
         <origin xyz="-0.0275 0.0 0.06" rpy="0.0 -0.0 0.0" />
         <parent link="base_link" />
         <child link="lidar_link" />

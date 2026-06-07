@@ -13,6 +13,8 @@
 /home/sam/amr-simulation/ros2_ws/install/amr_description/share/amr_description/cmake/amr_descriptionConfig.cmake
 /home/sam/amr-simulation/ros2_ws/install/amr_description/share/amr_description/cmake/amr_descriptionConfig-version.cmake
 /home/sam/amr-simulation/ros2_ws/install/amr_description/share/amr_description/package.xml
+/home/sam/amr-simulation/ros2_ws/install/amr_description/share/amr_description/config/bridge_config.yaml
+/home/sam/amr-simulation/ros2_ws/install/amr_description/share/amr_description/config/ekf.yaml
 /home/sam/amr-simulation/ros2_ws/install/amr_description/share/amr_description/launch/clean_world.launch.py
 /home/sam/amr-simulation/ros2_ws/install/amr_description/share/amr_description/launch/display.launch.py
 /home/sam/amr-simulation/ros2_ws/install/amr_description/share/amr_description/launch/obstacle_world.launch.py

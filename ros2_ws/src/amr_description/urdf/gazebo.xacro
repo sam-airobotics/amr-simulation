@@ -1,175 +1,156 @@
-<?xml version="1.0"?>
+<?xml version="1.0" ?>
+<robot name="amr" xmlns:xacro="http://www.ros.org/wiki/xacro" >
 
-<robot xmlns:xacro="http://www.ros.org/wiki/xacro">
+<xacro:property name="base_link" value="Gazebo/Orange" />
+<xacro:property name="wheels" value="Gazebo/Black" />
+<xacro:property name="lidar_link" value="Gazebo/Red" />
+<xacro:property name="camera_link" value="Gazebo/Blue" />
 
-    <!-- ================= BASE LINK ================= -->
+<gazebo reference="base_link">
+  <material>${base_link}</material>
+  <mu1>0.2</mu1>
+  <mu2>0.2</mu2>
+  <self_collide>true</self_collide>
+  <gravity>true</gravity>
+</gazebo>
 
-    <gazebo reference="base_link">
+<gazebo reference="lidar_link">
+  <material>${lidar_link}</material>
+  <mu1>0.2</mu1>
+  <mu2>0.2</mu2>
+  <self_collide>true</self_collide>
+</gazebo>
 
-        <mu1>1.0</mu1>
-        <mu2>1.0</mu2>
+<gazebo reference="f_wheel_r">
+  <material>${wheels}</material>
+  <mu1>1</mu1>
+  <mu2>1</mu2>
+  <self_collide>true</self_collide>
+</gazebo>
 
-        <kp>1000000.0</kp>
-        <kd>100.0</kd>
+<gazebo reference="f_wheel_l">
+  <material>${wheels}</material>
+  <mu1>1</mu1>
+  <mu2>1</mu2>
+  <self_collide>true</self_collide>
+</gazebo>
 
-    </gazebo>
+<gazebo reference="b_wheel_r">
+  <material>${wheels}</material>
+  <mu1>1</mu1>
+  <mu2>1</mu2>
+  <self_collide>true</self_collide>
+</gazebo>
 
-    <!-- ================= front wheels ================= -->
+<gazebo reference="b_wheel_l">
+  <material>${wheels}</material>
+  <mu1>1</mu1>
+  <mu2>1</mu2>
+  <self_collide>true</self_collide>
+</gazebo>
 
-    <gazebo reference="f_wheel_r">
+<gazebo reference="camera_link">
+  <material>${camera_link}</material>
+  <mu1>0.2</mu1>
+  <mu2>0.2</mu2>
+  <self_collide>true</self_collide>
+</gazebo>
 
-        <mu1>2.0</mu1>
-        <mu2>2.0</mu2>
+<gazebo>
+    <plugin filename="gz-sim-diff-drive-system" name="gz::sim::systems::DiffDrive">
+        <left_joint>f_wheel_r_revolute</left_joint>
+        <left_joint>f_wheel_l_revolute</left_joint>
+        <right_joint>b_wheel_r_revolute</right_joint>
+        <right_joint>b_wheel_l_revolute</right_joint>
 
-        <kp>1000000.0</kp>
-        <kd>100.0</kd>
+        <wheel_separation>0.16</wheel_separation>
+        <wheel_radius>0.031</wheel_radius>
+        
+        <max_linear_acceleration>1.0</max_linear_acceleration>
+        <max_angular_acceleration>2.0</max_angular_acceleration>
+        
+        <topic>cmd_vel</topic>
+        <tf_topic>tf</tf_topic>
+        <odom_topic>odom</odom_topic>
+        <frame_id>odom</frame_id>
+        <child_frame_id>base_link</child_frame_id>
+        <odom_publisher_frequency>50</odom_publisher_frequency>
+    </plugin>
 
-        <fdir1>1 0 0</fdir1>
+    <plugin filename="gz-sim-joint-state-publisher-system" name="gz::sim::systems::JointStatePublisher">
+        <topic>joint_states</topic>
+        <joint_name>f_wheel_r_revolute</joint_name>
+        <joint_name>f_wheel_l_revolute</joint_name>
+        <joint_name>b_wheel_r_revolute</joint_name>
+        <joint_name>b_wheel_l_revolute</joint_name>
+        
+        <joint_name>camera_rotation</joint_name>
+    </plugin>
+</gazebo>
 
-    </gazebo>
+<gazebo>
+    <plugin filename="gz-sim-sensors-system" name="gz::sim::systems::Sensors">
+    </plugin>
+</gazebo>
 
-    <gazebo reference="f_wheel_l">
+<gazebo reference="lidar_link">
+    <sensor name="laser" type="gpu_lidar">
+        <pose> 0 0 0 0 0 0 </pose>
+        <always_on>true</always_on>
+        <visualize>true</visualize>
+        <update_rate>30</update_rate>
+        <topic>scan</topic>
+        <gz_frame_id>lidar_link</gz_frame_id>
+        <lidar>
+        <scan>
+            <horizontal>
+            <samples>360</samples>
+            <min_angle>-3.14</min_angle>
+            <max_angle>3.14</max_angle>
+            </horizontal>
+        </scan>
+        <range>
+            <min>0.3</min>
+            <max>12</max>
+        </range>
+        </lidar>
+    </sensor>
+</gazebo>
 
-        <mu1>2.0</mu1>
-        <mu2>2.0</mu2>
+<gazebo reference="camera_link">
+    <sensor name="camera" type="camera">
+        <pose>0 0 0 0 0 0</pose>
+        <topic>camera/image_raw</topic>
+        <update_rate>30</update_rate>
+        <gz_frame_id>camera_link</gz_frame_id>
+        <camera>
+            <horizontal_fov>1.047</horizontal_fov> <image>
+                <width>640</width>
+                <height>480</height>
+                <format>R8G8B8</format>
+            </image>
+            <clip>
+                <near>0.1</near>
+                <far>100</far>
+            </clip>
+        </camera>
+        <visualize>true</visualize>
+    </sensor>
+</gazebo>
 
-        <kp>1000000.0</kp>
-        <kd>100.0</kd>
+<gazebo reference="base_link">
+  <sensor name="imu_sensor" type="imu">
+    <always_on>1</always_on>
+    <update_rate>50</update_rate>
+    <visualize>true</visualize>
+    <topic>imu</topic>
+    <gz_frame_id>base_link</gz_frame_id> 
+  </sensor>
+</gazebo>
 
-        <fdir1>1 0 0</fdir1>
-
-    </gazebo>
-
-    <!-- ================= back wheels ================= -->
-
-    <gazebo reference="b_wheel_r">
-
-        <mu1>2.0</mu1>
-        <mu2>2.0</mu2>
-
-        <kp>1000000.0</kp>
-        <kd>100.0</kd>
-
-        <fdir1>1 0 0</fdir1>
-
-    </gazebo>
-
-    <gazebo reference="b_wheel_l">
-
-        <mu1>2.0</mu1>
-        <mu2>2.0</mu2>
-
-        <kp>1000000.0</kp>
-        <kd>100.0</kd>
-
-        <fdir1>1 0 0</fdir1>
-
-    </gazebo>
-
-    <!-- Camera Sensor Plugin -->
-        <gazebo reference="camera_link">
-            <sensor name="camera_sensor" type="camera">
-                <topic>camera/image</topic>
-                <update_rate>30.0</update_rate>
-                <camera>
-                    <horizontal_fov>1.047</horizontal_fov>
-                    <image>
-                        <width>640</width>
-                        <height>480</height>
-                        <format>R8G8B8</format>
-                    </image>
-                    <clip>
-                        <near>0.1</near>
-                        <far>100.0</far>
-                    </clip>
-                </camera>
-            </sensor>
-        </gazebo>
-
-
-    <!-- LiDAR Sensor Plugin -->
-        <gazebo reference="lidar_link">
-            <sensor name="lidar_sensor" type="ray">
-                <topic>scan</topic>
-                <update_rate>10.0</update_rate>
-                <ray>
-                    <scan>
-                        <horizontal>
-                            <samples>720</samples>
-                            <resolution>1</resolution>
-                            <min_angle>-3.14159</min_angle>
-                            <max_angle>3.14159</max_angle>
-                        </horizontal>
-                    </scan>
-                    <range>
-                        <min>0.12</min>
-                        <max>12.0</max>
-                        <resolution>0.01</resolution>
-                    </range>
-                </ray>
-            </sensor>
-        </gazebo>
-
-    <!-- ================= DIFFERENTIAL DRIVE ================= -->
-
-    <!-- ===================================================== -->
-    <!-- ROS2 CONTROL -->
-    <!-- ===================================================== -->
-
-    <ros2_control name="GazeboSimSystem" type="system">
-
-        <hardware>
-            <plugin>gz_ros2_control/GazeboSimSystem</plugin>
-        </hardware>
-
-        <!-- Front Right Wheel -->
-        <joint name="f_wheel_r_revolute">
-            <command_interface name="velocity"/>
-            <state_interface name="position"/>
-            <state_interface name="velocity"/>
-        </joint>
-
-        <!-- Front Left Wheel -->
-        <joint name="f_wheel_l_revolute">
-            <command_interface name="velocity"/>
-            <state_interface name="position"/>
-            <state_interface name="velocity"/>
-        </joint>
-
-        <!-- Back Right Wheel -->
-        <joint name="b_wheel_r_revolute">
-            <command_interface name="velocity"/>
-            <state_interface name="position"/>
-            <state_interface name="velocity"/>
-        </joint>
-
-        <!-- Back Left Wheel -->
-        <joint name="b_wheel_l_revolute">
-            <command_interface name="velocity"/>
-            <state_interface name="position"/>
-            <state_interface name="velocity"/>
-        </joint>
-
-    </ros2_control>
-
-
-    <!-- ===================================================== -->
-    <!-- GAZEBO HARMONIC ROS2 CONTROL PLUGIN -->
-    <!-- ===================================================== -->
-
-    <gazebo>
-
-        <plugin
-            filename="libgz_ros2_control-system.so"
-            name="gz_ros2_control::GazeboSimROS2ControlPlugin">
-
-            <parameters>
-                $(find amr_control)/config/controllers.yaml
-            </parameters>
-
-        </plugin>
-
-    </gazebo>
-
+<gazebo>
+  <plugin filename="gz-sim-imu-system" name="gz::sim::systems::Imu">
+  </plugin>
+</gazebo>
 
 </robot>

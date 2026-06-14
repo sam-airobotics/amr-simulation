@@ -26,8 +26,8 @@ diff_drive_controller:
       - b_wheel_r_revolute
 
     # Robot dimensions
-    wheel_separation: 0.31875
-    wheel_radius: 0.05
+    wheel_separation: 0.085
+    wheel_radius: 0.025
 
     # Controller settings
     publish_rate: 50.0

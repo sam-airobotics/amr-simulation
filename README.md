@@ -150,6 +150,7 @@ ros2 launch amr_nav navigation_launch.py
     <li>Map generation working using <code>amr_slam</code>.</li>
     <li>Occupancy map can be viewed in RViz.</li>
     <li>Robot Collision resolved</li>
+    <li>Robot forward and backward movement is now resolved</li>
 </ul>
 
 ![AMR in RViz](images/amr_camera_lidar.png)
@@ -159,7 +160,7 @@ ros2 launch amr_nav navigation_launch.py
 
 ## ⚠️ Current Issues
 <ul>
-    <li>Robot movement via <code>teleop_twist_keyboard</code> is unstable.</li>
+    <li>Robot turning via <code>teleop_twist_keyboard</code> is unstable.</li>
     <li>Reliable and accurate mapping is not yet possible.</li>
 </ul>
 
@@ -167,8 +168,6 @@ ros2 launch amr_nav navigation_launch.py
 
 ## 🔧 Next Steps
 <ul>
-    <li>Tune robot dynamics and friction parameters.</li>
-    <li>Debug DiffDrive configuration.</li>
-    <li>Improve odometry and motion stability.</li>
+    <li>Robot turning resolution</li>
 </ul>
 

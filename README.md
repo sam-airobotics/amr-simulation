@@ -149,25 +149,24 @@ ros2 launch amr_nav navigation_launch.py
     <li>LiDAR sensor integrated and visualized.</li>
     <li>Map generation working using <code>amr_slam</code>.</li>
     <li>Occupancy map can be viewed in RViz.</li>
+    <li>Robot Collision resolved</li>
 </ul>
 
 ![AMR in RViz](images/amr_camera_lidar.png)
 ![AMR in World](images/amr_world_lidar.png)
+<img width="1920" height="1200" alt="image" src="https://github.com/user-attachments/assets/631bf075-217c-4346-9ee3-d7a9f0cd1441" />
+
 
 ## ⚠️ Current Issues
 <ul>
     <li>Robot movement via <code>teleop_twist_keyboard</code> is unstable.</li>
-    <li>Collision geometries are inaccurate.</li>
-    <li>Robot exhibits irregular motion in Gazebo.</li>
     <li>Reliable and accurate mapping is not yet possible.</li>
 </ul>
 
 ![AMR Mapping](images/amr_mapping_ongoing.png)
-<img width="1920" height="1200" alt="image" src="https://github.com/user-attachments/assets/9c33b825-2532-46b7-96a8-413d8e94b024" />
 
 ## 🔧 Next Steps
 <ul>
-    <li>Fix wheel and chassis collision models.</li>
     <li>Tune robot dynamics and friction parameters.</li>
     <li>Debug DiffDrive configuration.</li>
     <li>Improve odometry and motion stability.</li>

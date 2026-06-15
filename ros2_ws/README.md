@@ -22,7 +22,7 @@
     <li>Reliable and accurate mapping is not yet possible.</li>
 </ul>
 
-![AMR Mapping](images/amr_mapping_ongoing.png)
+<img width="1920" height="1200" alt="image" src="https://github.com/user-attachments/assets/e93a7916-22f3-4f7f-8e65-14653810a87e" />
 
 ## 🔧 Next Steps
 <ul>

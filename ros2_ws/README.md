@@ -11,7 +11,7 @@
     <li>Robot forward and backward movement is now resolved</li>
 </ul>
 
-![AMR in RViz](images/amr_camera_lidar.png)
+<img width="1920" height="1200" alt="image" src="https://github.com/user-attachments/assets/e72fc1f2-6807-4243-9356-c25db311be17" />
 ![AMR in World](images/amr_world_lidar.png)
 <img width="1920" height="1200" alt="image" src="https://github.com/user-attachments/assets/631bf075-217c-4346-9ee3-d7a9f0cd1441" />
 

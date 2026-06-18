@@ -156,7 +156,7 @@
 
 <!-- Joints -->
 
-    <joint name="base_footprint_to_base_link" type="fixed">
+    <joint name="base_joint" type="fixed">
         <origin xyz="0.0 0.0 0.0" rpy="0.0 0.0 0.0" />
         <parent link="base_footprint" />
         <child link="base_link" />
@@ -165,7 +165,7 @@
         <origin xyz="0.04 -0.0425 0.025" rpy="1.5707963267948966 -0.0 0.0" />
         <parent link="base_link" />
         <child link="f_wheel_r" />
-        <axis xyz="0.0 0.0 -1.0" />
+        <axis xyz="0.0 0.0 1.0" />
     </joint>
     <joint name="f_wheel_l_revolute" type="continuous">
         <origin xyz="0.04 0.0425 0.025" rpy="-1.5707963267948966 -0.0 0.0" />
@@ -183,7 +183,7 @@
         <origin xyz="-0.04 -0.0425 0.025" rpy="1.5707963267948966 -0.0 0.0" />
         <parent link="base_link" />
         <child link="b_wheel_r" />
-        <axis xyz="0.0 0.0 -1.0" />
+        <axis xyz="0.0 0.0 1.0" />
     </joint>
     <joint name="camera_rotation" type="revolute">
         <origin xyz="0.01916667 0.0 0.05" rpy="0.0 -0.0 0.0" />

@@ -44,7 +44,7 @@ def generate_launch_description():
                 "-name", "amr",
                 "-x", "0.0",
                 "-y", "0.0",
-                "-z", "0.32",
+                "-z", "0.0",
                 "-Y", "0.0"
             ],
             output='screen'

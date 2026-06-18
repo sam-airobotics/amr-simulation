@@ -18,11 +18,11 @@ diff_drive_controller:
     # Left wheels
     left_wheel_names:
       - f_wheel_l_revolute
-      - b_wheel_r_revolute
+      - b_wheel_l_revolute
 
     # Right wheels
     right_wheel_names:
-      - b_wheel_l_revolute
+      - b_wheel_r_revolute
       - f_wheel_r_revolute
 
     # Robot dimensions

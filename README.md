@@ -40,7 +40,7 @@ The project is intended to serve as a foundation for more advanced autonomous ro
 
 | RViz | Gazebo |
 |------|---------|
-| ![](images/amr_rviz.png) | ![](images/amr_gazebo.png) |
+| ![](resources/images/amr_rviz.png) | ![](resources/images/amr_gazebo.png) |
 
 </div>
 
@@ -66,7 +66,7 @@ A simple environment used for validating robot movement and system integration.
 - ROS2 Control
 - Gazebo Simulation
 
-![](images/clean_world_gz_sim.png)
+![](resources/images/clean_world_gz_sim.png)
 
 ---
 
@@ -78,7 +78,7 @@ Designed to evaluate robot behaviour around static obstacles.
 - Turning Validation
 - Navigation Experiments
 
-![](images/obstacle_world_gz_sim.png)
+![](resources/images/obstacle_world_gz_sim.png)
 
 ---
 
@@ -91,7 +91,7 @@ Environment focused on perception and visualization.
 - RViz Integration
 - ros2 bag Support
 
-![](images/sensor_world_gz_sim.png)
+![](resources/images/sensor_world_gz_sim.png)
 
 ---
 
@@ -108,7 +108,7 @@ The robot successfully performs real-time mapping using **SLAM Toolbox**.
 
 <div align="center">
 
-![](images/amr_mapping.png)
+![](resources/images/amr_mapping.png)
 
 </div>
 
@@ -211,9 +211,9 @@ ros2 launch amr_nav navigation_launch.py
 
 <div align="center">
 
-| Camera & LiDAR                   | Robot in Simulation             |
-| -------------------------------- | ------------------------------- |
-| ![](images/amr_camera_lidar.png) | ![](images/amr_world_lidar.png) |
+| Camera & LiDAR                             | Robot in Simulation             |
+| -------------------------------------------| --------------------------------|
+| ![](resources/images/amr_camera_lidar.png) | ![](resources/images/amr_world_lidar.png) |
 
 </div>
 

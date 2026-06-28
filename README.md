@@ -8,9 +8,11 @@ A complete **Autonomous Mobile Robot (AMR)** simulation built using **ROS 2 Jazz
 
 ### 🎥 Project Demonstration
 
-[![Watch Demo](images/video_thumbnail.png)](https://github.com/sam-airobotics/amr-simulation/assets/VIDEO_LINK)
+<a href="resources/videos/amr_sim.mp4">
+  <img src="resources/videos/amr_sim.gif" width="700" alt="AMR Simulation">
+</a>
 
-> Click the image above to watch the complete SLAM and Navigation demonstration.
+Click the gif above to watch the complete SLAM and Navigation demonstration.
 
 </div>
 

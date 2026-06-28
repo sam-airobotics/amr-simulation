@@ -1,173 +1,259 @@
+<div align="center">
+
 # 🚀 ROS2 AMR Simulation
 
-This project focuses on building and simulating a simple **Autonomous Mobile Robot (AMR)** using ROS2 and Gazebo.
-
-The simulation environment is designed for understanding the core concepts of mobile robotics, robot control, sensor integration, and robot visualization in a realistic simulation setup.
+A complete **Autonomous Mobile Robot (AMR)** simulation built using **ROS 2 Jazzy** and **Gazebo Harmonic**, featuring differential drive control, LiDAR and camera integration, SLAM, and autonomous navigation.
 
 ---
 
-# 🤖 AMR Robot
+### 🎥 Project Demonstration
 
-<ul>
-<li>A simple Differential Drive Autonomous Mobile Robot (AMR).</li>
-<li>Built for ROS2 and Gazebo simulation.</li>
-<li>Modular and easy to expand for advanced robotics applications.</li>
-</ul>
+[![Watch Demo](images/video_thumbnail.png)](https://github.com/sam-airobotics/amr-simulation/assets/VIDEO_LINK)
 
-![AMR](images/amr_rviz.png)
-![AMR](images/amr_gazebo.png)
+> Click the image above to watch the complete SLAM and Navigation demonstration.
+
+</div>
 
 ---
 
-# 🌍 Simulation Environments
+# 📖 Overview
 
-## 🟢 Basic Simulation World
+This project demonstrates the complete workflow of building an Autonomous Mobile Robot (AMR) from simulation to autonomous navigation.
 
-A minimal environment for testing robot motion and control.
+The robot has been developed entirely in **ROS 2 Jazzy** and **Gazebo Harmonic**, providing a modular platform for learning and experimenting with modern robotics concepts including:
+
+- Differential Drive Kinematics
+- ROS 2 Control
+- Sensor Integration
+- SLAM (Simultaneous Localization and Mapping)
+- Autonomous Navigation
+- RViz Visualization
+- Gazebo Simulation
+
+The project is intended to serve as a foundation for more advanced autonomous robotic systems.
+
+---
+
+# 🤖 Robot Features
+
+<div align="center">
+
+| RViz | Gazebo |
+|------|---------|
+| ![](images/amr_rviz.png) | ![](images/amr_gazebo.png) |
+
+</div>
+
+### Hardware Simulation
+
+- Differential Drive Mobile Robot
+- LiDAR Sensor
+- RGB Camera
+- ROS2 Control Integration
+- TF Tree
+- Robot State Publisher
+
+---
+
+# 🌍 Simulation Worlds
+
+## 🟢 Clean World
+
+A simple environment used for validating robot movement and system integration.
+
+- Differential Drive Control
+- Keyboard Teleoperation
+- ROS2 Control
+- Gazebo Simulation
+
+![](images/clean_world_gz_sim.png)
+
+---
+
+## 🟡 Obstacle World
+
+Designed to evaluate robot behaviour around static obstacles.
+
+- Obstacle Avoidance Testing
+- Turning Validation
+- Navigation Experiments
+
+![](images/obstacle_world_gz_sim.png)
+
+---
+
+## 🔵 Sensor World
+
+Environment focused on perception and visualization.
+
+- LiDAR Visualization
+- Camera Streaming
+- RViz Integration
+- ros2 bag Support
+
+![](images/sensor_world_gz_sim.png)
+
+---
+
+# 🗺️ SLAM
+
+The robot successfully performs real-time mapping using **SLAM Toolbox**.
 
 ### Features
-- Differential drive motion
-- Keyboard teleoperation
-- ROS2 `/cmd_vel` control
-- Gazebo simulation support
 
-### Purpose
-- Robot movement testing
-- Velocity control validation
-- Simulation environment setup
+- Online Mapping
+- Occupancy Grid Generation
+- RViz Visualization
+- Map Saving Support
 
-![Clean World](images/clean_world_gz_sim.png)
+<div align="center">
 
----
+![](images/amr_mapping.png)
 
-## 🟡 Obstacle Environment
-
-A world containing obstacles for testing robot interaction and movement behavior.
-
-### Features
-- Static obstacles
-- Narrow passages
-- Turning and maneuvering tests
-
-### Purpose
-- Obstacle interaction
-- Motion behavior analysis
-- Navigation testing
-
-![Obstacle World](images/obstacle_world_gz_sim.png)
+</div>
 
 ---
 
-## 🔵 Sensor Environment
+# 🧭 Autonomous Navigation
 
-A structured environment for testing robot sensors and visualization.
+The robot can autonomously navigate to user-defined goals using the ROS 2 Navigation Stack.
 
-### Features
-- Lidar integration
-- RViz visualization
-- `ros2 bag` recording and playback
-- Sensor data streaming
+### Navigation Pipeline
 
-### Purpose
-- Sensor simulation
-- Data visualization
-- Perception system testing
-
-![Sensor World](images/sensor_world_gz_sim.png)
-
----
-
-# 🎯 Project Goals
-
-- Develop a simple AMR simulation platform
-- Explore ROS2 and Gazebo integration
-- Simulate robot movement and sensing
-- Provide a foundation for autonomous robotics development
-- Support future navigation and perception systems
+- Localization
+- Global Path Planning
+- Local Planning
+- Goal Execution
+- Obstacle Avoidance
 
 ---
 
 # ⚙️ Requirements
 
-- ROS2 Jazzy (or compatible)
-- Gazebo Sim
-- Python
+- ROS 2 Jazzy
+- Gazebo Harmonic
 - RViz2
+- Python 3
+- colcon
 
 ---
 
-## ▶️ Running the Simulation
+# ▶️ Getting Started
 
-### clone repo
+### Clone Repository
+
 ```bash
 git clone git@github.com:sam-airobotics/amr-simulation.git
-```
+````
 
-### move to ros2_ws
+### Enter Workspace
+
 ```bash
 cd amr-simulation/ros2_ws
 ```
 
-### Build workspace
+### Build
+
 ```bash
 colcon build --symlink-install
 ```
 
-### Source workspace
+### Source
+
 ```bash
 source install/setup.bash
 ```
 
-### Launch simulation
+---
+
+# 🚀 Launch Simulation
+
+### Launch Gazebo + RViz
+
 ```bash
 ros2 launch amr_description sim.launch.py
 ```
 
-### Launch Mapping
+### Launch SLAM
+
 ```bash
 ros2 launch amr_slam online_async_launch.py
 ```
 
-### Control robot
+### Teleoperate Robot
+
 ```bash
 ros2 run teleop_twist_keyboard teleop_twist_keyboard
 ```
 
 ### Launch Navigation
+
 ```bash
 ros2 launch amr_nav navigation_launch.py
 ```
 
 ---
 
-# AMR Simulation Status
+# ✅ Current Capabilities
 
-## ✅ Completed
-<ul>
-    <li>Robot model visualized in RViz.</li>
-    <li>Camera sensor integrated and visualized.</li>
-    <li>LiDAR sensor integrated and visualized.</li>
-    <li>Map generation working using <code>amr_slam</code>.</li>
-    <li>Occupancy map can be viewed in RViz.</li>
-    <li>Robot Collision resolved</li>
-    <li>Robot forward and backward movement is now resolved</li>
-</ul>
+* ✔️ Differential Drive Robot
+* ✔️ ROS 2 Control
+* ✔️ Camera Integration
+* ✔️ LiDAR Integration
+* ✔️ TF Tree
+* ✔️ RViz Visualization
+* ✔️ Gazebo Simulation
+* ✔️ SLAM Mapping
+* ✔️ Occupancy Grid Generation
+* ✔️ Autonomous Navigation
+* ✔️ Goal Pose Navigation
+* ✔️ Modular ROS 2 Package Structure
 
-![AMR in RViz](images/amr_camera_lidar.png)
-![AMR in World](images/amr_world_lidar.png)
-![AMR Collision](images/amr_collision.png)
+<div align="center">
 
+| Camera & LiDAR                   | Robot in Simulation             |
+| -------------------------------- | ------------------------------- |
+| ![](images/amr_camera_lidar.png) | ![](images/amr_world_lidar.png) |
 
-## ⚠️ Current Issues
-<ul>
-    <li>Robot turning via <code>teleop_twist_keyboard</code> is unstable.</li>
-    <li>Reliable and accurate mapping is not yet possible.</li>
-</ul>
+</div>
 
-![AMR Mapping](images/amr_mapping_ongoing.png)
+---
 
+# 📁 Repository Structure
 
-## 🔧 Next Steps
-<ul>
-    <li>Robot turning resolution</li>
-</ul>
+```
+ros2_ws/
+├── amr_description/
+├── amr_control/
+├── amr_slam/
+├── amr_nav/
+└── ...
+```
+
+---
+
+# 🎯 Future Improvements
+
+* Improved Localization Accuracy
+* Dynamic Obstacle Avoidance
+* Multi-Robot Simulation
+* Path Planning Optimization
+* Real Robot Deployment
+* Computer Vision Integration
+
+---
+
+# 🤝 Contributions
+
+Contributions, suggestions, and feature requests are always welcome.
+
+If you find this project useful, consider giving it a ⭐ on GitHub.
+
+---
+
+<div align="center">
+
+Built with ❤️ using ROS 2 & Gazebo
+
+</div>
+

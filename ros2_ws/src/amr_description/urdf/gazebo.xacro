@@ -58,13 +58,13 @@
 
 <gazebo>
     <plugin filename="gz-sim-diff-drive-system" name="gz::sim::systems::DiffDrive">
-        <left_joint>f_wheel_r_revolute</left_joint>
         <left_joint>f_wheel_l_revolute</left_joint>
+        <left_joint>b_wheel_l_revolute</left_joint>
+        <right_joint>f_wheel_r_revolute</right_joint>
         <right_joint>b_wheel_r_revolute</right_joint>
-        <right_joint>b_wheel_l_revolute</right_joint>
-
-        <wheel_separation>0.16</wheel_separation>
-        <wheel_radius>0.031</wheel_radius>
+        
+        <wheel_separation>0.085</wheel_separation>
+        <wheel_radius>0.025</wheel_radius>
         
         <max_linear_acceleration>1.0</max_linear_acceleration>
         <max_angular_acceleration>2.0</max_angular_acceleration>

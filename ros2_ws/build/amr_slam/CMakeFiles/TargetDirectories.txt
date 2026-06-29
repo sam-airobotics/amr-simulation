@@ -1,9 +1,0 @@
-/home/sam/amr-simulation/ros2_ws/build/amr_slam/CMakeFiles/uninstall.dir
-/home/sam/amr-simulation/ros2_ws/build/amr_slam/CMakeFiles/amr_slam_uninstall.dir
-/home/sam/amr-simulation/ros2_ws/build/amr_slam/CMakeFiles/test.dir
-/home/sam/amr-simulation/ros2_ws/build/amr_slam/CMakeFiles/edit_cache.dir
-/home/sam/amr-simulation/ros2_ws/build/amr_slam/CMakeFiles/rebuild_cache.dir
-/home/sam/amr-simulation/ros2_ws/build/amr_slam/CMakeFiles/list_install_components.dir
-/home/sam/amr-simulation/ros2_ws/build/amr_slam/CMakeFiles/install.dir
-/home/sam/amr-simulation/ros2_ws/build/amr_slam/CMakeFiles/install/local.dir
-/home/sam/amr-simulation/ros2_ws/build/amr_slam/CMakeFiles/install/strip.dir

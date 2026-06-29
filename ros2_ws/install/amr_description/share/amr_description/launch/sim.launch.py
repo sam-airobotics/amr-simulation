@@ -1,1 +1,0 @@
-/home/sam/amr-simulation/ros2_ws/src/amr_description/launch/sim.launch.py

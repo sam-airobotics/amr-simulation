@@ -17,6 +17,7 @@ jobs:
 
       - name: Install dependencies
         run: |
+          cd ros2_ws
           apt-get update
           rosdep update
           rosdep install --from-paths src --ignore-src -r -y
@@ -24,5 +25,5 @@ jobs:
       - name: Build
         run: |
           cd ros2_ws
-          . /opt/ros/jazzy/setup.sh
+          source /opt/ros/jazzy/setup.sh
           colcon build && colcon test

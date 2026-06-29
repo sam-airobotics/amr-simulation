@@ -23,5 +23,6 @@ jobs:
 
       - name: Build
         run: |
+          cd ros2_ws
           . /opt/ros/jazzy/setup.sh
           colcon build && colcon test
